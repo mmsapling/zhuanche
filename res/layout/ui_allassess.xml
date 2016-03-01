@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp" >
+
+        <com.baidu.zhuanche.view.CircleImageView
+            android:id="@+id/allassess_civ_pic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/photo" />
+
+        <TextView
+            android:id="@+id/allassess_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/allassess_civ_pic"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/allassess_civ_pic"
+            android:text="张师傅"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/allassess_tv_carnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/allassess_tv_name"
+            android:layout_centerVertical="true"
+            android:text="粤**M8D1"
+            android:textColor="#666666"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/allassess_tv_carname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/allassess_tv_carnum"
+            android:text="比亚迪S6"
+            android:textColor="#666666"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/text001"
+            style="@style/BasicTextStyle"
+            android:layout_alignLeft="@id/allassess_tv_carnum"
+            android:layout_below="@id/allassess_tv_carnum"
+            android:text="身份证："
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/allassess_tv_idcard"
+            style="@style/BasicTextStyle"
+            android:layout_below="@id/allassess_tv_carname"
+            android:layout_toRightOf="@id/text001"
+            android:text="43052319950912881X"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/star" >
+
+            <TextView
+                android:id="@+id/allassess_tv_rating"
+                style="@style/BasicTextStyle"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="4.9"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View style="@style/DivideStyle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/BasicTextStyle"
+                android:text="服务次数" />
+
+            <TextView
+                android:id="@+id/allassess_tv_servercount"
+                style="@style/BasicTextStyle"
+                android:text="486" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/BasicTextStyle"
+                android:text="司机排名" />
+
+            <TextView
+                android:id="@+id/allassess_tv_ranking"
+                style="@style/BasicTextStyle"
+                android:text="16549" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View style="@style/DivideStyle" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/allassess_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ptr:ptrAnimationStyle="flip" />
+
+</LinearLayout>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+    <!-- 审核状态 -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/bg_identity" >
+
+                <RelativeLayout
+                    android:id="@+id/status_relativeLayout_02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:layout_centerVertical="true" >
+
+                    <com.baidu.zhuanche.view.CircleImageView
+                        android:id="@+id/ic_civ_photo"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:src="@drawable/photo" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_status01"
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:layout_toRightOf="@id/ic_civ_photo"
+                        android:src="@drawable/ic_dui_normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_iv_status01"
+                        android:layout_marginLeft="110dp"
+                        android:layout_marginTop="10dp"
+                        android:text="身份驗證"
+                        android:textColor="@color/textColor" />
+
+                    <View
+                        android:id="@+id/status_image_05"
+                        android:layout_width="50dp"
+                        android:layout_height="0.5dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/ic_iv_status01"
+                        android:background="@color/divide_color" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_status02"
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/status_image_05"
+                        android:src="@drawable/ic_dui_normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_iv_status02"
+                        android:layout_marginLeft="180dp"
+                        android:layout_marginTop="10dp"
+                        android:text="正在處理"
+                        android:textColor="@color/textColor" />
+
+                    <View
+                        android:id="@+id/status_image_07"
+                        android:layout_width="50dp"
+                        android:layout_height="0.5dp"
+                        android:layout_alignTop="@+id/status_image_05"
+                        android:layout_toRightOf="@+id/ic_iv_status02"
+                        android:background="@color/divide_color" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_status03"
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:layout_alignTop="@id/ic_iv_status02"
+                        android:layout_toRightOf="@id/status_image_07"
+                        android:src="@drawable/ic_dui_normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_iv_status03"
+                        android:layout_marginLeft="250dp"
+                        android:layout_marginTop="10dp"
+                        android:text="驗證成功"
+                        android:textColor="@color/textColor" />
+
+                    <TextView
+                        android:id="@+id/status_text_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/status_image_05"
+                        android:layout_marginLeft="30dp"
+                        android:drawableLeft="@drawable/pictutre_88"
+                        android:drawablePadding="4dp"
+                        android:gravity="center"
+                        android:text="處理狀態"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <!-- 审核状态完 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_identity"
+                android:orientation="vertical"
+                android:paddingLeft="12dp" >
+
+                <!-- 姓名 -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/ic_tv_titlename"
+                        style="@style/LeftTitleTextStyle"
+                        android:text="姓名" />
+
+                    <EditText
+                        android:id="@+id/ic_et_name"
+                        style="@style/RightTextStyle"
+                        android:layout_toRightOf="@id/ic_tv_titlename"
+                        android:background="@null"
+                        android:hint="請填寫真實姓名" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="@color/divide_color" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/ic_tv_title_carpai"
+                        style="@style/LeftTitleTextStyle"
+                        android:text="車牌號" />
+
+                    <EditText
+                        android:id="@+id/ic_et_carnum"
+                        style="@style/RightTextStyle"
+                        android:layout_toRightOf="@id/ic_tv_title_carpai"
+                        android:background="@null"
+                        android:hint="例如**1234" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_example"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="60dp"
+                        android:src="@drawable/xiaohei_small"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_carpai"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/addphoto" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- 下一个 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_identity"
+                android:orientation="vertical"
+                android:paddingLeft="12dp" >
+
+                <!-- 姓名 -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/ic_tv_titlecarpool"
+                        style="@style/LeftTitleTextStyle"
+                        android:text="車型" />
+
+                    <EditText
+                        android:id="@+id/ic_et_carpool"
+                        style="@style/RightTextStyle"
+                        android:layout_toRightOf="@id/ic_tv_titlecarpool"
+                        android:background="@null"
+                        android:hint="請填寫車型" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="@color/divide_color" />
+
+                <RelativeLayout
+                    android:id="@+id/ic_container_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/ic_tv_title_carlevel"
+                        style="@style/LeftTitleTextStyle"
+                        android:text="車型" />
+
+                    <TextView
+                        android:id="@+id/ic_tv_carlevel"
+                        style="@style/RightTextStyle"
+                        android:layout_toRightOf="@id/ic_tv_title_carlevel"
+                        android:background="@null"
+                        android:hint="例如五人座" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="4dp"
+                        android:layout_marginBottom="6dp"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/right_arrow" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="@color/divide_color" />
+
+                <RelativeLayout
+                    android:id="@+id/ic_container_seaport"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/ic_tv_title_seaport"
+                        style="@style/LeftTitleTextStyle"
+                        android:text="口岸" />
+
+                    <TextView
+                        android:id="@+id/ic_tv_seaport"
+                        style="@style/RightTextStyle"
+                        android:layout_toRightOf="@id/ic_tv_title_seaport"
+                        android:hint="例如文锦渡" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="4dp"
+                        android:layout_marginBottom="6dp"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/right_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- 另外一个 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_identity"
+                android:orientation="vertical"
+                android:paddingLeft="12dp" >
+
+                <!-- 准驾证号 -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/ic_tv_titlezjzh"
+                        style="@style/LeftTitleTextStyle"
+                        android:text="駕照編號" />
+
+                    <EditText
+                        android:id="@+id/ic_et_zjzh"
+                        style="@style/RightTextStyle"
+                        android:layout_toRightOf="@id/ic_tv_titlezjzh"
+                        android:background="@null"
+                        android:hint="請填寫大陸證件" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_example1"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="60dp"
+                       android:src="@drawable/xiaohei_small"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_zjzh"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/addphoto" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="@color/divide_color" />
+                <!-- 身份证号 -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/ic_tv_title_idcard"
+                        style="@style/LeftTitleTextStyle"
+                        android:text="行駛證號" />
+
+                    <EditText
+                        android:id="@+id/ic_et_idcard"
+                        style="@style/RightTextStyle"
+                        android:layout_toRightOf="@id/ic_tv_title_idcard"
+                        android:background="@null"
+                        android:hint="請填寫大陸證件" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_example2"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="60dp"
+                        android:src="@drawable/xiaohei_small"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/ic_iv_idcard"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/addphoto" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- 提交 -->
+
+            <Button
+                android:id="@+id/ic_bt_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/xiangrigou_selector"
+                android:text="提交"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

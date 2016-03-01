@@ -1,0 +1,139 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/setting_header"
+        layout="@layout/layout_header" />
+
+    <View style="@style/DivideStyle" />
+
+    <RelativeLayout
+          android:background="@drawable/item_bg_selector"
+        android:id="@+id/setting_xgpassword"
+        style="@style/SettingContainerStyle"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:id="@+id/set_text_02"
+            style="@style/SettingTextStyle"
+            android:text="修改密碼" />
+
+        <ImageView
+            style="@style/SettingRightImgStyle"
+            android:layout_marginTop="20dp" />
+    </RelativeLayout>
+
+    <View android:visibility="gone" style="@style/DivideStyle" />
+
+    <RelativeLayout
+        android:visibility="gone"
+          android:background="@drawable/item_bg_selector"
+        android:id="@+id/setting_container_cache"
+        style="@style/SettingContainerStyle" >
+
+        <TextView
+            android:id="@+id/set_text_03"
+            style="@style/SettingTextStyle"
+            android:text="清空緩存" />
+
+        <TextView
+            android:id="@+id/setting_tv_cache"
+            style="@style/SettingRightTextStyle" />
+
+        <ImageView style="@style/SettingRightImgStyle" />
+    </RelativeLayout>
+
+    <View style="@style/DivideStyle" />
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/setting_container_msg"
+        style="@style/SettingContainerStyle" >
+
+        <TextView
+            android:id="@+id/set_text_04"
+            style="@style/SettingTextStyle"
+            android:text="接送推送" />
+
+        <com.zcw.togglebutton.ToggleButton
+            android:id="@+id/setting_tb_toggle"
+            android:layout_width="54dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+
+    <View
+        android:layout_marginTop="20dp"
+        style="@style/DivideStyle"/>
+
+    <RelativeLayout
+          android:background="@drawable/item_bg_selector"
+        android:id="@+id/setting_container_check"
+        style="@style/SettingContainerStyle" >
+
+        <TextView
+            android:id="@+id/set_text_06"
+            style="@style/SettingTextStyle"
+            android:text="檢查更新" />
+
+        <ImageView style="@style/SettingRightImgStyle" />
+    </RelativeLayout>
+
+    <View style="@style/DivideStyle" />
+
+    <RelativeLayout
+          android:background="@drawable/item_bg_selector"
+        android:id="@+id/setting_container_us"
+        style="@style/SettingContainerStyle" >
+
+        <TextView
+            android:id="@+id/set_text_07"
+            style="@style/SettingTextStyle"
+            android:text="關於我們" />
+
+        <ImageView style="@style/SettingRightImgStyle" />
+    </RelativeLayout>
+
+    <View style="@style/DivideStyle" />
+
+    <RelativeLayout
+          android:background="@drawable/item_bg_selector"
+        android:id="@+id/setting_container_fankui"
+        style="@style/SettingContainerStyle" >
+
+        <TextView
+            android:id="@+id/set_text_08"
+            style="@style/SettingTextStyle"
+            android:text="意见反馈" />
+
+        <ImageView style="@style/SettingRightImgStyle" />
+    </RelativeLayout>
+
+    <View style="@style/DivideStyle" />
+
+    <RelativeLayout
+        style="@style/SettingContainerStyle"
+        android:layout_marginTop="40dp"
+        android:background="@null" >
+
+        <Button
+            android:id="@+id/setting_bt_logout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+             android:background="@drawable/setting_bt_selector"
+            android:gravity="center"
+            android:text="退出登錄"
+            android:textColor="@color/textcolor_order_selector"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/DriverAccount"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:text="賬戶資金" />
+
+        <TextView
+            android:id="@+id/driver_account_tv_account"
+            style="@style/MoneyStyle"
+            android:layout_marginBottom="10dp"
+            android:text="￥0.00"
+            android:textSize="30sp" />
+
+        <TextView
+            style="@style/DriverAccount"
+            android:text="可體現（元）"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/driver_account_tv_canwithdraw"
+            style="@style/MoneyStyle"
+            android:text="0.00" />
+
+        <View
+            style="@style/DivideStyle"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:paddingLeft="12dp" >
+
+                <TextView
+                    style="@style/DriverAccount"
+                    android:text="今日進帳"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/driver_account_tv_todayaccount"
+                    style="@style/MoneyStyle"
+                    android:layout_marginTop="4dp"
+                    android:text="0.00" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:background="@color/divide_color" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    android:paddingRight="12dp" >
+
+                    <TextView
+                        style="@style/DriverAccount"
+                        android:text="歷史進帳"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/driver_account_tv_historyaccount"
+                        style="@style/MoneyStyle"
+                        android:layout_marginTop="4dp"
+                        android:text="0.00" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_identity"
+        android:orientation="vertical"
+        android:paddingLeft="12dp" >
+
+        <RelativeLayout
+            android:id="@+id/driveraccount_container_record"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/LeftTitleTextStyle"
+                android:text="申請記錄"
+                android:textColor="@color/textColor" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"
+                android:layout_marginBottom="6dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/divide_color" />
+
+        <RelativeLayout
+            android:id="@+id/driveraccount_container_withdraw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/LeftTitleTextStyle"
+                android:text="申請提現"
+                android:textColor="@color/textColor" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"
+                android:layout_marginBottom="6dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

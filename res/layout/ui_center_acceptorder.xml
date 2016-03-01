@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/container_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <com.baidu.zhuanche.view.CircleImageView
+                    android:id="@+id/acceptorder_iv_photo"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/photo" />
+
+                <TextView
+                    android:id="@+id/acceptorder_tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="张小姐"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+                
+                <TextView
+                    android:id="@+id/acceptorder_tv_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="13652304622"
+                    android:visibility="gone"
+                    android:layout_marginBottom="6dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_time"
+                        style="@style/accept_TextNormalStyle"
+                        android:drawableLeft="@drawable/accept_time"
+                        android:text="09月28号" />
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="￥120"
+                        android:textColor="@color/price_color"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/divide_color" />
+
+                <TextView
+                    android:id="@+id/acceptorder_tv_geton"
+                    style="@style/accept_TextNormalStyle"
+                    android:drawableLeft="@drawable/driverhome_01"
+                    android:text="南山东滨路深圳湾口岸" />
+
+                <TextView
+                    android:id="@+id/acceptorder_tv_getoff"
+                    style="@style/accept_TextNormalStyle"
+                    android:drawableLeft="@drawable/driverhome_02"
+                    android:text="香港国际机场" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/divide_color" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_level"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_02"
+                        android:text="豪华型5人座" />
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_carpool"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_01"
+                        android:text="专车" />
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_seaport"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_seaport"
+                        android:text="罗湖口岸" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_peoplecount"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_03"
+                        android:text="2人" />
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_xingli"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_04"
+                        android:text="无" />
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_signtype"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_05"
+                        android:text="回乡证/团签" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_yuyueprice"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_06"
+                        android:text="￥100" />
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_fee"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_07"
+                        android:text="￥20" />
+
+                    <TextView
+                        android:id="@+id/acceptorder_tv_hangban"
+                        style="@style/accept_DetailStyle"
+                        android:drawableTop="@drawable/accept_08"
+                        android:text="0B100" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/divide_color" />
+
+                <TextView
+                    style="@style/accept_TextNormalStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="备注"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/acceptorder_tv_des"
+                    style="@style/accept_TextNormalStyle"
+                    android:layout_marginTop="6dp"
+                    android:text="你好！我这边没有行李，一共有三个人，有个孩子，尽量能提前一点过来，因为有事比较急，麻烦你了，谢谢！"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/bg" />
+
+            <Button
+                android:id="@+id/acceptorder_bt_acceptorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/xiangrigou_selector"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="接单"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

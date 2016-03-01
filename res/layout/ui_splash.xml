@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background_01" >
+	<include layout="@layout/layout_header"/>
+    <Button
+        android:id="@+id/splash_button_driver"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:text="我是司机" 
+        android:textSize="20sp"
+        android:textColor="@drawable/bt_text_main_selector"
+        android:background="@drawable/page_bg_white"/>
+
+    <Button
+        android:id="@+id/splash_button_user"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_alignLeft="@+id/splash_button_driver"
+        android:layout_alignRight="@+id/splash_button_driver"
+        android:layout_below="@+id/splash_button_driver"
+        android:layout_marginTop="55dp"
+        android:text="我是用户" 
+        android:textSize="20sp"
+        android:textColor="@drawable/bt_text_main_selector"
+        android:background="@drawable/page_bg_white"/>
+  
+</RelativeLayout>

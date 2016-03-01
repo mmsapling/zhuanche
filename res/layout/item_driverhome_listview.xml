@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_bg_selector"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="8dp" >
+
+    <com.baidu.zhuanche.view.CircleImageView
+        android:id="@+id/item_driverhome_civ_photo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/photo" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/item_driverhome_civ_photo"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/driverhome_tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今天 08:00"
+            android:textColor="#666666"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/driverhome_tv_geton"
+            style="@style/TextNormalStyle"
+            android:drawableLeft="@drawable/driverhome_01"
+            android:drawablePadding="4dp"
+            android:text="深圳宝安中心"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/driverhome_tv_getoff"
+            style="@style/TextNormalStyle"
+            android:drawableLeft="@drawable/driverhome_02"
+            android:drawablePadding="4dp"
+            android:text="香港九龙"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/driverhome_tv_level"
+                style="@style/TextNormalStyle"
+                android:drawableLeft="@drawable/driverhome_03"
+                android:drawablePadding="4dp"
+                android:text="豪华型5座"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/driverhome_tv_carpool"
+                style="@style/TextNormalStyle"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@drawable/driverhome_04"
+                android:drawablePadding="4dp"
+                android:text="专车"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <TextView
+                style="@style/TextNormalStyle"
+                android:text="价格:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/driverhome_tv_price"
+                style="@style/TextNormalStyle"
+                android:text="120元"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/TextNormalStyle"
+                android:layout_marginLeft="10dp"
+                android:text="小费:￥"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/driverhome_tv_fee"
+                style="@style/TextNormalStyle"
+                android:text="50"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/driverhome_bt_acceptorder"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/bg_btn_gray"
+        android:text="接单"
+        android:textColor="#666666" />
+
+    <TextView
+        android:id="@+id/driverhome_tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="2.4km"
+        android:textColor="#666666" />
+
+</RelativeLayout>

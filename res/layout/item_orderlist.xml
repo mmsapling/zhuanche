@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/item_bg_selector"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/divide_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp" >
+
+        <RelativeLayout
+            android:id="@+id/list_relativeLayout_01"
+            android:layout_width="match_parent"
+            android:layout_height="22dp" >
+
+            <ImageView
+                android:id="@+id/list_image_01"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/page_38" />
+
+            <TextView
+                android:id="@+id/item_yuyue_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13dp"
+                android:layout_toRightOf="@+id/list_image_01"
+                android:text="7月28号"
+                android:textColor="@color/item_yuyue_textColor"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/item_yuyue_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/item_yuyue_date"
+                android:textColor="@color/item_yuyue_textColor"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/item_yuyue_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/item_yuyue_date"
+                android:layout_alignBottom="@+id/item_yuyue_date"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:text="已预约"
+                android:textColor="#ff0000"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/list_relativeLayout_08"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_below="@+id/list_relativeLayout_07" >
+
+            <ImageView
+                android:id="@+id/list_image_08"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/page_42" />
+
+            <TextView
+                android:id="@+id/item_yuyue_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13dp"
+                android:layout_toRightOf="@+id/list_image_08"
+                android:text="南山东滨路深圳湾口岸"
+                android:textColor="@color/item_yuyue_textColor"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/list_relativeLayout_09"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp" >
+
+            <ImageView
+                android:id="@+id/list_image_09"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/page_37" />
+
+            <TextView
+                android:id="@+id/item_yuyue_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13dp"
+                android:layout_toRightOf="@+id/list_image_09"
+                android:text="香港九龙尖沙咀东部的尖沙咀海滨花园"
+                android:textColor="@color/item_yuyue_textColor"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/item_yuyue_iv_arrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/arrow_up" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/divide_color" />
+
+    <LinearLayout
+        android:id="@+id/item_yuyue_ll_order_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/list_relativeLayout_02"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_02"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_35" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_02"
+                    android:text="豪华5人座"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/list_relativeLayout_03"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_03"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_33" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_03"
+                    android:text="专车"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/list_relativeLayout_04"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_04"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_39" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_04"
+                    android:text="2人"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/list_relativeLayout_004"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_004"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/xingli" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_wu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_004"
+                    android:text="无"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_10"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_34" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_budget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_10"
+                    android:text="¥1000元"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_07"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_41" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_port"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_07"
+                    android:text="深圳口岸"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/list_image_13"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/right_arrow_pressed" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_010"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/huixiangzheng" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_qianzheng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_010"
+                    android:text="回乡镇 团签"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_11"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_43" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_fee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_11"
+                    android:text="¥50元"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_011"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/hangban1" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_hangbanhao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_011"
+                    android:text="0B100"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/list_relativeLayout_12"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_12"
+                    android:layout_width="12dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_36" />
+
+                <Button
+                    android:id="@+id/item_yuyue_look"
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/list_image_12"
+                    android:background="@drawable/page_47"
+                    android:focusable="false" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/divide_color" />
+    </LinearLayout>
+    <!-- 待接单状态 -->
+
+    <RelativeLayout
+        android:id="@+id/item_yuyue_status_daijiedan"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/item_yuyue_addFee"
+            android:layout_width="70dp"
+            android:layout_height="22dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/smallbg_selector"
+            android:focusable="false"
+            android:text="加小费"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/item_yuyue_addFee"
+            android:text="没人接单？试试加小费吧~"
+            android:textColor="#66000000"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    <!-- 已预约状态 -->
+    <!-- 司机详情 -->
+
+    <LinearLayout
+        android:id="@+id/item_yuyue_container_yiyuyue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:text="司机详情"
+            android:textColor="@color/item_yuyue_textColor"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_0101"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_39" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_tv_drivername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_0101"
+                    android:text="张师傅"
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/list_image_111"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/page_04" />
+
+                <TextView
+                    android:id="@+id/item_yuyue_tv_carid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_toRightOf="@+id/list_image_111"
+                    android:text=""
+                    android:textColor="@color/item_yuyue_textColor"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/divide_color" />
+
+        <RelativeLayout
+            android:id="@+id/hahaha"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" >
+
+            <Button
+                android:id="@+id/item_yuyue_fukuang"
+                android:layout_width="70dp"
+                android:layout_height="22dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/smallbg_selector"
+                android:focusable="false"
+                android:text="去付款"
+                android:textColor="#0000ff"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- 去评价 -->
+
+    <RelativeLayout
+        android:id="@+id/item_container_assess"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <Button
+            android:id="@+id/item_yuyue_bt_assess"
+            android:layout_width="70dp"
+            android:layout_height="22dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/smallbg_selector"
+            android:focusable="false"
+            android:text="去评价"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    <!-- 看评价 -->
+
+    <RelativeLayout
+        android:id="@+id/item_container_lookassess"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <Button
+            android:id="@+id/item_yuyue_bt_lookassess"
+            android:layout_width="70dp"
+            android:layout_height="22dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/smallbg_selector"
+            android:focusable="false"
+            android:text="查看评价"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    <!-- 已取消 -->
+
+    <RelativeLayout
+        android:id="@+id/item_container_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <Button
+            android:id="@+id/item_yuyue_bt_cancel"
+            android:layout_width="70dp"
+            android:layout_height="22dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/smallbg_selector"
+            android:enabled="false"
+            android:focusable="false"
+            android:text="已取消"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

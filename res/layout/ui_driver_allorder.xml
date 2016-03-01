@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <RelativeLayout style="@style/DriverOrderContainerStyle" >
+            <TextView
+                android:id="@+id/allorder_tv_all"
+                style="@style/DriverOrderMenuStyle"
+                android:text="全部" />
+        </RelativeLayout>
+        <View style="@style/DriverOrderMenuDivideStyle" />
+        <RelativeLayout style="@style/DriverOrderContainerStyle" >
+            <TextView
+                android:id="@+id/allorder_tv_going"
+                style="@style/DriverOrderMenuStyle"
+                android:text="待出發" />
+        </RelativeLayout>
+        <View style="@style/DriverOrderMenuDivideStyle" />
+        <RelativeLayout style="@style/DriverOrderContainerStyle" >
+            <TextView
+                android:id="@+id/allorder_tv_payed"
+                style="@style/DriverOrderMenuStyle"
+                android:text="已支付" />
+        </RelativeLayout>
+        <View style="@style/DriverOrderMenuDivideStyle" />
+        <RelativeLayout style="@style/DriverOrderContainerStyle" >
+            <TextView
+                android:id="@+id/allorder_tv_assesed"
+                style="@style/DriverOrderMenuStyle"
+                android:text="已評價" />
+        </RelativeLayout>
+    </LinearLayout>
+	<com.baidu.zhuanche.view.NoScrollViewPager
+	    android:id="@+id/allorder_viewpager"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"/>
+</LinearLayout>

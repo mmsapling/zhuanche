@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F6F6F6" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:background="@drawable/page_bg_black" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="6dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <com.baidu.zhuanche.view.CircleImageView
+                    android:id="@+id/uc_civ_pic"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/photo" />
+
+                <TextView
+                    android:id="@+id/uc_tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="巴黎的雨夜"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/uc_tv_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="131****4562"
+                    android:textColor="#fff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="8dp"
+            android:background="#F6F6F6" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/uc_container_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:background="@drawable/page_bg_black1" >
+
+            <ImageView
+                android:id="@+id/cemterImageShe"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/setting" />
+
+            <TextView
+                android:id="@+id/centerText01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/cemterImageShe"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cemterImageShe"
+                android:text="设置"
+                android:textColor="#666666"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/centerImageSheZhi"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="17dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout005"
+            android:layout_width="wrap_content"
+            android:layout_height="8dp"
+            android:background="#F6F6F6" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/uc_container_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:background="@drawable/page_bg_black1" >
+
+            <ImageView
+                android:id="@+id/centerImageXiao"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/uc_page02" />
+
+            <TextView
+                android:id="@+id/centerTextView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/centerImageXiao"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/centerImageXiao"
+                android:text="我的消息"
+                android:textColor="#666666"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/centerImageSheZhi01"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="17dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout007"
+            android:layout_width="wrap_content"
+            android:layout_height="8dp"
+            android:background="#F6F6F6" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout008"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:background="@drawable/page_bg_black1" >
+
+            <ImageView
+                android:id="@+id/centerImageXi"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/uc_page01" />
+
+            <TextView
+                android:id="@+id/centerTextView03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/centerImageXi"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/centerImageXi"
+                android:text="我的预约消息"
+                android:textColor="#666666"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

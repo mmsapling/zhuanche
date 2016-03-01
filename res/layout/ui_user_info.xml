@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F6F6"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+    <!-- 头像部分 -->
+
+    <FrameLayout
+        android:id="@+id/info_fl_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/page_bg_black1" />
+    <!-- 昵称部分 -->
+
+    <FrameLayout
+        android:id="@+id/info_fl_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/page_bg_black1" />
+    <!-- 性别部分 -->
+
+    <FrameLayout
+        android:id="@+id/info_fl_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/page_bg_black1" />
+    <!-- 手机部分 -->
+
+    <FrameLayout
+        android:id="@+id/info_fl_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/page_bg_black1" />
+    <!-- 我的签名部分 -->
+
+    <FrameLayout
+        android:id="@+id/info_fl_sign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/page_bg_black1" />
+
+</LinearLayout>

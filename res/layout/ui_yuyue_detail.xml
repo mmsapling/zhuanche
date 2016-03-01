@@ -1,0 +1,296 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+
+    <include
+        layout="@layout/layout_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- 头 -->
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:id="@+id/yyd_container_driver"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" >
+
+                <com.baidu.zhuanche.view.CircleImageView
+                    android:id="@+id/yyd_civ_pic"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/photo" />
+
+                <TextView
+                    android:id="@+id/yyd_tv_drivername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/yyd_civ_pic"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/yyd_civ_pic"
+                    android:text="张师傅"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/yyd_tv_carnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/yyd_tv_drivername"
+                    android:layout_centerVertical="true"
+                    android:text="粤**M8D1"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+
+                <RatingBar
+                    android:id="@+id/yyd_ratingbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/yyd_tv_carnum"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/yyd_civ_pic"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressDrawable="@drawable/layerlist_ratingbar_bg" />
+
+                <TextView
+                    android:id="@+id/yyd_tv_carid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/yyd_tv_carnum"
+                    android:text="比亚迪S6"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/yyd_iv_call"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@+id/yyd_civ_pic"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="14dp"
+                    android:src="@drawable/phonelin" />
+            </RelativeLayout>
+            <!-- 车费详情 -->
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:id="@+id/yuyue_relativeLayout_05"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" >
+
+                <ImageView
+                    android:id="@+id/yuyue_image_06"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:src="@drawable/pingjialine" />
+
+                <TextView
+                    android:id="@+id/yuyue_text_08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="车费合计"
+                    android:textColor="#999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/yuyue_image_07"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="40dp"
+                    android:src="@drawable/pingjialine" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:id="@+id/yuyue_relativeLayout_04"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" >
+
+                <TextView
+                    android:id="@+id/yuyue_text_09"
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="40dp"
+                    android:text="车费合计"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/yyd_tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/yuyue_text_09"
+                    android:layout_marginLeft="120dp"
+                    android:text="672.5元"
+                    android:textColor="#333333"
+                    android:textSize="30sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:background="@color/white"
+                android:id="@+id/yyd_container_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/yuyue_relativeLayout_05"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" >
+
+                    <ImageView
+                        android:id="@+id/yuyue_image_06"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:src="@drawable/pingjialine" />
+
+                    <TextView
+                        android:id="@+id/yuyue_text_08"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="支付方式"
+                        android:textColor="#999999"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/yuyue_image_07"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="40dp"
+                        android:src="@drawable/pingjialine" />
+                </RelativeLayout>
+                <!-- 支付 -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            style="@style/PayLeftFontStyle"
+                            android:text="微信支付" />
+
+                        <TextView
+                            style="@style/PayLeftFontStyle"
+                            android:drawableLeft="@drawable/zhifubao"
+                            android:text="支付宝支付" />
+
+                        <TextView
+                            style="@style/PayLeftFontStyle"
+                            android:drawableLeft="@drawable/xianjin"
+                            android:text="现金支付" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/yyd_radiogroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical" >
+
+                        <RadioButton
+                            android:id="@+id/yyd_rb_weixin"
+                            style="@style/PayRightButtonStyle" />
+
+                        <RadioButton
+                            android:id="@+id/yyd_rb_zfb"
+                            style="@style/PayRightButtonStyle" />
+
+                        <RadioButton
+                            android:id="@+id/yyd_rb_xianjin"
+                            style="@style/PayRightButtonStyle" />
+                    </RadioGroup>
+                </RelativeLayout>
+                <!-- 小费信息 -->
+
+            </LinearLayout>
+          
+            <!-- 小费 容器-->
+            <LinearLayout 
+                android:id="@+id/yyd_container_fee"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout 
+                     android:id="@+id/yyd_container_itemfee"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView 
+                        style="@style/SettingTextStyle"
+                        android:text="加小费"/>
+                    <ImageView 
+                        style="@style/SettingRightImgStyle"/>
+                </RelativeLayout>
+                <View android:layout_marginLeft="15dp" style="@style/DivideStyle"/>
+                <RelativeLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView 
+                        style="@style/SettingTextStyle"
+                        android:text="小费总额"/>
+                    <TextView 
+                         android:id="@+id/yyd_tv_fee"
+                        style="@style/SettingRightTextStyle"
+                        android:layout_marginRight="15dp"
+                        android:textColor="#000000"
+                        android:text="￥0"/>
+                </RelativeLayout>
+            </LinearLayout>
+            
+              <!-- 订单状态 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:id="@+id/yyd_bt_status"
+                    style="@style/GreenButtonStyle"
+                    android:background="@drawable/xiangrigou_selector"
+                    android:text="预 约" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

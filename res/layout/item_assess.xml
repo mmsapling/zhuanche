@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp" >
+
+        <TextView
+            android:id="@+id/item_assess_tv_mobile"
+            style="@style/BasicTextStyle"
+             android:textSize="12sp"
+            android:text="13652304622" />
+
+        <TextView
+            android:id="@+id/item_assess_tv_time"
+            style="@style/BasicTextStyle"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/item_assess_tv_mobile"
+            android:text="07-18 10:17" />
+
+        <RatingBar
+            android:id="@+id/item_assess_ratingbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressDrawable="@drawable/layerlist_ratingbar_bg" />
+
+        <TextView
+            android:id="@+id/item_assess_tv_assess"
+            style="@style/BasicTextStyle"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/item_assess_tv_mobile"
+            android:textColor="#000000"
+            android:text="师傅好耐性，好赞啊！" />
+    </RelativeLayout>
+
+</LinearLayout>

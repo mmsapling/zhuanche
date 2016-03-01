@@ -1,0 +1,223 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp" >
+
+            <com.baidu.zhuanche.view.CircleImageView
+                android:id="@+id/layout_driver_iv_pic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/photo" />
+
+            <TextView
+                android:id="@+id/layout_driver_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/layout_driver_iv_pic"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/layout_driver_iv_pic"
+                android:text="张师傅"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/layout_driver_tv_car_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/layout_driver_tv_name"
+                android:layout_centerVertical="true"
+                android:text="粤**M8D1"
+                android:textColor="#666666"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/layout_driver_tv_carid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/layout_driver_tv_car_name"
+                android:text="比亚迪S6"
+                android:textColor="#666666"
+                android:textSize="12sp" />
+
+            <RatingBar
+                android:id="@+id/layout_driver_ratingbar12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_driver_tv_carid"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/layout_driver_iv_pic"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressDrawable="@drawable/layerlist_ratingbar_bg" />
+
+            <ImageView
+                android:id="@+id/layout_driver_iv_call"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="14dp"
+                android:src="@drawable/phonelin" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/assess_relativeLayout_03"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" >
+
+        <ImageView
+            android:id="@+id/assess_image_05"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/pingjialine" />
+
+        <TextView
+            android:id="@+id/assess_text_07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/assess_image_05"
+            android:text="成功支付"
+            android:textColor="#999999"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_toRightOf="@+id/assess_text_07"
+            android:src="@drawable/pingjialine" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp" >
+
+        <TextView
+            android:id="@+id/assess_tv_price111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="672.5元"
+            android:textColor="#333333"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/assess_relativeLayout_05"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" >
+
+        <ImageView
+            android:id="@+id/assess_image_06"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/pingjialine" />
+
+        <TextView
+            android:id="@+id/assess_text_08"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/assess_image_06"
+            android:text="评价司机"
+            android:textColor="#999999"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/assess_image_07"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_toRightOf="@+id/assess_text_08"
+            android:src="@drawable/pingjialine" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RatingBar
+            android:id="@+id/assess_rb_ratingbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:numStars="5"
+            android:progressDrawable="@drawable/layerlist_ratingbar_big_bg" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/assess_text_14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="请把您的不满告诉我们"
+        android:textColor="#FF9827"
+        android:textSize="10sp" />
+
+    <EditText
+        android:id="@+id/assess_et_pingjia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_btn_gray"
+        android:gravity="left|top"
+        android:hint="可以输入其他意见和建议"
+        android:lines="5"
+        android:padding="8dp"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/assess_bt_submit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/xiangrigou_selector"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="提交评价"
+            android:textColor="@color/textcolor_selector"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</LinearLayout>

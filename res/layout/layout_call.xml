@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="2dp"
+    android:background="@drawable/bg_popup"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/BasicTextStyle"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:text="请选择拨打电话号码" />
+
+    <Button
+        android:id="@+id/call_bt_text1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bt_selector"
+        android:text="从相册选择"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:textColor="#88000000"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/call_bt_text2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_bt_selector"
+        android:text="从相册选择2"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:textColor="#88000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/call_bt_cancle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+         android:background="@drawable/bg_bt_selector"
+        android:text="取消"
+         android:padding="8dp"
+        android:textSize="16sp"
+        android:textColor="#33000000"
+        android:textStyle="bold" />
+
+</LinearLayout>

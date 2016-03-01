@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp"
+    android:background="@drawable/body_rectangle_while_border_rd_bg"
+    android:orientation="vertical"
+    android:paddingTop="10dp" >
+
+    <TextView
+        android:id="@+id/alterdialog_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minLines="3"
+        android:maxHeight="410dp"
+        android:scrollbars="vertical"
+        android:textColor="#333333"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="#E3E3E3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/alterdialog_button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_lift_bottem"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp"
+            android:text="@string/cancel"
+            android:textColor="#666666"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E3E3E3" />
+
+        <Button
+            android:id="@+id/alterdialog_button_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_right_bottem"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp"
+            android:text="确认"
+            android:textColor="#F61418"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

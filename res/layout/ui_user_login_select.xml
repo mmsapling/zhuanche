@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_01"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/uls_bt_login"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/page_bg_white"
+            android:text="登陆"
+            android:textColor="@drawable/bt_text_main_selector"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/uls_bt_regist"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/page_bg_white"
+            android:text="注册"
+            android:textColor="@drawable/bt_text_main_selector"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</RelativeLayout>

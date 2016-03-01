@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp" >
+
+        <com.baidu.zhuanche.view.CircleImageView
+            android:id="@+id/complete_civ_photo"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:background="@drawable/photo" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/complete_tv_mainquhao"
+                style="@style/BasicTextStyle"
+                android:layout_marginTop="8dp"
+                android:text="+86" />
+
+            <TextView
+                android:id="@+id/complete_tv_mobile"
+                style="@style/BasicTextStyle"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:text="15580714398" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 下一个 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_identity"
+        android:orientation="vertical"
+        android:paddingLeft="12dp" >
+
+        <!-- 姓名 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/complete_tv_name"
+                style="@style/LeftTitleTextStyle2"
+                android:text="昵稱" />
+
+            <EditText
+                android:id="@+id/complete_et_name"
+                style="@style/RightEditTextStyle"
+                android:layout_toRightOf="@id/complete_tv_name"
+                android:hint="請輸入你的昵稱" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/divide_color" />
+
+        <RelativeLayout
+            android:id="@+id/complete_container_sex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/applycash_tv_title_carlevel"
+                style="@style/LeftTitleTextStyle2"
+                android:text="性別" />
+
+            <TextView
+                android:id="@+id/complet_tv_sex"
+                style="@style/RightEditTextStyle"
+                android:layout_toRightOf="@id/applycash_tv_title_carlevel"
+                android:hint="請選擇你的性別"
+                android:inputType="number" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"
+                android:layout_marginBottom="6dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+ 		<View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/divide_color" />
+
+        <RelativeLayout
+            android:id="@+id/complete_container_sexsb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/applycash_tv_title_carlevelsb"
+                style="@style/LeftTitleTextStyle2"
+                android:text="主手机号" />
+
+            <TextView
+                android:id="@+id/complet_tv_sexsb"
+                style="@style/RightEditTextStyle"
+                android:layout_toRightOf="@id/applycash_tv_title_carlevelsb"
+                android:text="15580714398"/>
+
+           
+        </RelativeLayout>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/divide_color" />
+
+        <RelativeLayout
+            android:id="@+id/applycash_container_seaport"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:id="@+id/complete_container_quhao"
+                android:layout_width="100dp"
+                android:layout_height="48dp" >
+
+                <TextView
+                    android:id="@+id/complete_tv_quhao"
+                    style="@style/LeftTitleTextStyle2"
+                    android:layout_width="100dp"
+                    android:drawableRight="@drawable/quhao1"
+                    android:text="+86" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/complete_et_backupmobile"
+                style="@style/RightEditTextStyle"
+                android:layout_toRightOf="@id/complete_container_quhao"
+                android:hint="請輸入你的備用手機"
+                android:inputType="number" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/complete_bt_ok"
+        style="@style/BaseButtonStyle"
+        android:layout_marginTop="30dp"
+        android:text="確定" />
+
+</LinearLayout>

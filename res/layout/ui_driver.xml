@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/driver_scrollview"
+        ptr:ptrAnimationStyle="flip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 头像信息 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="#000000" >
+
+                <RelativeLayout
+                    android:id="@+id/driver_rl_01"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp" >
+
+                    <com.baidu.zhuanche.view.CircleImageView
+                        android:id="@+id/driver_civ_photo"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:src="@drawable/photo" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/picture_21" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/driver_rl_01"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/driver_tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="張師傅"
+                        android:textColor="#fff"
+                        android:textSize="18sp" />
+
+                    <RatingBar
+                        android:id="@+id/driver_ratingbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:progressDrawable="@drawable/layerlist_ratingbar_bg"
+                        android:rating="3" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- 中间5个菜单栏 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="2dp" >
+
+                <TextView
+                    android:id="@+id/driver_tv_checkidentity"
+                    style="@style/ContentMenuStyle"
+                    android:drawableTop="@drawable/picture_14"
+                    android:text="身份審覈" />
+
+                <TextView
+                    android:id="@+id/driver_tv_mymsg"
+                    style="@style/ContentMenuStyle"
+                    android:drawableTop="@drawable/picture_15"
+                    android:text="我的消息" />
+
+                <TextView
+                    android:id="@+id/driver_tv_allorder"
+                    style="@style/ContentMenuStyle"
+                    android:drawableTop="@drawable/picture_16"
+                    android:text="全部訂單" />
+
+                <TextView
+                    android:id="@+id/driver_tv_myaccount"
+                    style="@style/ContentMenuStyle"
+                    android:drawableTop="@drawable/picture_17"
+                    android:text="我的賬戶" />
+
+                <TextView
+                    android:id="@+id/driver_tv_allassess"
+                    style="@style/ContentMenuStyle"
+                    android:drawableTop="@drawable/driver_05"
+                    android:text="全部評價" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="@color/divide_color"/>
+            <com.baidu.zhuanche.view.NoScrollListView
+                android:id="@+id/driver_listview"
+                android:background="@color/bg"
+                android:divider="@color/divide_color"
+                android:dividerHeight="0.1dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+</LinearLayout>

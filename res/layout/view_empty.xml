@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/view_empty_iv_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/car" />
+
+    <TextView
+        android:id="@+id/view_empty_tv_msg"
+        style="@style/BasicTextStyle"
+        android:layout_below="@id/view_empty_iv_img"
+        android:layout_marginTop="20dp"
+        android:text="你好沒有任何消息!"
+        android:textSize="16sp" />
+
+</RelativeLayout>

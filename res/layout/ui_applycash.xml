@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 下一个 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_identity"
+                android:orientation="vertical"
+                android:paddingLeft="12dp" >
+
+                <!-- 姓名 -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/applycash_tv_titlecarpool"
+                        style="@style/LeftTitleTextStyle2"
+                        android:text="姓名" />
+
+                    <EditText
+                        android:id="@+id/applycash_et_name"
+                        style="@style/RightEditTextStyle"
+                        android:layout_toRightOf="@id/applycash_tv_titlecarpool"
+                        android:hint="請輸入你的姓名" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="@color/divide_color" />
+
+                <RelativeLayout
+                    android:id="@+id/applycash_container_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/applycash_tv_title_carlevel"
+                        style="@style/LeftTitleTextStyle2"
+                        android:text="卡號" />
+
+                    <EditText
+                        android:id="@+id/applycash_et_idcardnum"
+                        style="@style/RightEditTextStyle"
+                        android:inputType="number"
+                        android:layout_toRightOf="@id/applycash_tv_title_carlevel"
+                        android:hint="請輸入你的卡號" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="@color/divide_color" />
+
+                <RelativeLayout
+                    android:id="@+id/applycash_container_seaport"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/applycash_tv_title_seaport"
+                        style="@style/LeftTitleTextStyle2"
+                        android:text="金額" />
+
+                    <EditText
+                        android:id="@+id/applycash_et_cashcount"
+                        style="@style/RightEditTextStyle"
+                        android:inputType="number"
+                        android:layout_toRightOf="@id/applycash_tv_title_seaport"
+                        android:hint="請輸入你的金額" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- 下一个 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_identity"
+                android:orientation="vertical"
+                android:paddingLeft="12dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/applycash_tv_bankname"
+                        style="@style/LeftTitleTextStyle2"
+                        android:text="開戶銀行" />
+
+                    <EditText
+                        android:id="@+id/applycash_et_bankname"
+                        style="@style/RightEditTextStyle"
+                        android:layout_toRightOf="@id/applycash_tv_bankname"
+                        android:hint="請輸入你的開戶銀行 " />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="@color/divide_color" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/applycash_tv_location"
+                        style="@style/LeftTitleTextStyle2"
+                        android:text="所在地支行" />
+
+                    <EditText
+                        android:id="@+id/applycash_et_location"
+                        style="@style/RightEditTextStyle"
+                        android:layout_toRightOf="@id/applycash_tv_location"
+                        android:hint="請輸入你的所在地支行" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- 下一个 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_identity"
+                android:orientation="vertical"
+                android:paddingLeft="12dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/applycash_tv_00"
+                        style="@style/LeftTitleTextStyle2"
+                        android:text="可體現金額" />
+
+                    <TextView
+                        android:id="@+id/applycash_tv_cancash"
+                        style="@style/RightTextStyle"
+                        android:layout_toRightOf="@id/applycash_tv_00"
+                        android:text="￥500.00" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:background="@color/divide_color" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/applycash_tv_01"
+                        style="@style/LeftTitleTextStyle2"
+                        android:text="手續費" />
+
+                    <TextView
+                        android:id="@+id/applycash_tv_charge"
+                        style="@style/RightEditTextStyle"
+                        android:layout_toRightOf="@id/applycash_tv_01" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- 提交 -->
+
+            <Button
+                android:id="@+id/applycash_bt_submit"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_identity"
+                android:text="確認" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

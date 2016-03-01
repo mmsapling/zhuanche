@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_header" />
+
+    <View
+        style="@style/DivideStyle"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        style="@style/SettingContainerStyle"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/feedback_et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="top|left"
+            android:hint="请输入你的标题"
+            android:lines="1"
+            android:padding="8dp" />
+
+        <View style="@style/DivideStyle" />
+
+        <EditText
+            android:id="@+id/feedback_et_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="top|left"
+            android:hint="请输入你的宝贵意见"
+            android:lines="5"
+            android:padding="8dp" />
+
+        <View style="@style/DivideStyle" />
+    </LinearLayout>
+
+    <RelativeLayout
+        style="@style/SettingContainerStyle"
+        android:layout_marginTop="40dp"
+        android:background="@null" >
+
+        <Button
+            android:id="@+id/feedback_bt_submit"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_btn_gray"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/textcolor_order_selector"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

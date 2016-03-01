@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:gravity="center"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp" >
+
+    <ImageView
+        android:id="@+id/item_uh_gridview_pic"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/gridview_01" />
+
+    <TextView
+         android:id="@+id/item_uh_gridview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="粤港巴士"
+        android:textSize="14sp" />
+
+</LinearLayout>
