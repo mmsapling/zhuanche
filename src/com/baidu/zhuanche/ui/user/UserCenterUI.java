@@ -95,7 +95,6 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 	{
 		super.onRestart();
 		mImageUtils.display(mCivPic, URLS.BASE + mUser.icon);
-		lianjieUser();
 	}
 	@Override
 	public void initData()

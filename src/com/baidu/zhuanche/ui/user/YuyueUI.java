@@ -1151,6 +1151,16 @@ public class YuyueUI extends BaseActivity implements OnClickListener, OnGetOnLoc
 		{
 			mYuyueData.carpool = "0";
 		}
+		String peopleCount = mEtPeopleCount.getText().toString().trim();
+		String port = mTvPort.getText().toString().trim();
+		String getoff = mEtGetOff.getText().toString().trim();
+		String geton = mEtGetOn.getText().toString().trim();
+		String price = mTvBudget.getText().toString().trim();
+		boolean flag = !TextUtils.isEmpty(peopleCount) && !TextUtils.isEmpty(port)
+						&& !TextUtils.isEmpty(getoff) && !TextUtils.isEmpty(geton)&& !TextUtils.isEmpty(price);
+		if(flag){
+			getBudget();
+		}
 	}
 
 }

@@ -13,7 +13,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="30dp"
-	        android:src="@drawable/car"/>
+	        android:src="@drawable/ic_launcher"/>
 	    <TextView 
 	        style="@style/BasicTextStyle"
 	        android:text="打车版本V1.0"

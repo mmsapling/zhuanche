@@ -3,6 +3,7 @@ package com.baidu.zhuanche.ui.user;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,6 +29,7 @@ import com.baidu.zhuanche.utils.JsonUtils;
 import com.baidu.zhuanche.utils.ToastUtils;
 import com.baidu.zhuanche.utils.UIUtils;
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 
@@ -155,11 +157,21 @@ public class UserFindPwdUI extends BaseActivity implements OnClickListener
 		RequestParams params = new RequestParams();
 		params.put(URLS.MOBILE, number);
 		ToastUtils.showProgress(this);
-		client.post(url, params, new MyAsyncResponseHandler() {
+		client.post(url, params, new AsyncHttpResponseHandler() {
+			
+			
+			
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3)
+			{
+				ToastUtils.closeProgress();
+			}
 
 			@Override
-			public void success(String json)
+			public void onSuccess(int arg0, Header[] arg1, byte[] arg2)
 			{
+				ToastUtils.closeProgress();
+				String json = new String(arg2);
 				/** 获取验证码,并未验证码赋值 */
 				try
 				{
@@ -173,6 +185,7 @@ public class UserFindPwdUI extends BaseActivity implements OnClickListener
 				}
 			}
 		});
+		
 	}
 
 	/** 区号选择 */
