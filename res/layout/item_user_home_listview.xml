@@ -13,8 +13,9 @@
 
         <ImageView
             android:id="@+id/item_user_home_iv_icon"
-            android:layout_width="48dp"
-            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:layout_height="48dp"
+            android:scaleType="fitXY"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:src="@drawable/car" />

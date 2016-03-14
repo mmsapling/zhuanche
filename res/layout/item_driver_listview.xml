@@ -74,7 +74,7 @@
 
             <TextView
                 style="@style/TextNormalStyle"
-                android:text="价格:"
+                android:text="價格:"
                 android:textSize="14sp" />
 
             <TextView
@@ -86,7 +86,7 @@
             <TextView
                 style="@style/TextNormalStyle"
                 android:layout_marginLeft="10dp"
-                android:text="小费:"
+                android:text="小費:"
                 android:textSize="12sp" />
 
             <TextView

@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,6 +24,7 @@ import com.baidu.zhuanche.R;
 import com.baidu.zhuanche.base.BaseActivity;
 import com.baidu.zhuanche.base.BaseApplication;
 import com.baidu.zhuanche.bean.User;
+import com.baidu.zhuanche.bean.UserBean;
 import com.baidu.zhuanche.conf.URLS;
 import com.baidu.zhuanche.holder.InfoMobileHolder;
 import com.baidu.zhuanche.holder.InfoNameHolder;
@@ -35,11 +37,14 @@ import com.baidu.zhuanche.utils.AsyncHttpClientUtil;
 import com.baidu.zhuanche.utils.FileUtils;
 import com.baidu.zhuanche.utils.JsonUtils;
 import com.baidu.zhuanche.utils.PhotoUtilChange;
+import com.baidu.zhuanche.utils.PrintUtils;
 import com.baidu.zhuanche.utils.ToastUtils;
 import com.baidu.zhuanche.utils.UIUtils;
 import com.baidu.zhuanche.view.CircleImageView;
 import com.baidu.zhuanche.view.SelectPicPopupWindow;
+import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 /**
@@ -113,13 +118,50 @@ public class UserInfoUI extends BaseActivity implements OnClickListener, OnModif
 	public void onClick(View v)
 	{
 		if(v == mIvLeftHeader){
-			finishActivity();
+			reLogin();
 		}
 	}
 	@Override
 	public void onBackPressed()
 	{
-		finishActivity();
+		reLogin();
+		
+	}
+	public void reLogin(){
+		String url = URLS.BASESERVER + URLS.User.login;
+		RequestParams params = new RequestParams();
+		params.add("mobile", BaseApplication.getUser().mobile);
+		params.add("password", BaseApplication.getUser().password);
+		AsyncHttpClient client = AsyncHttpClientUtil.getInstance(UIUtils.getContext());
+		client.post(url, params, new AsyncHttpResponseHandler() {
+
+			@Override
+			public void onSuccess(int arg0, Header[] arg1, byte[] arg2)
+			{
+				String json = new String(arg2);
+				Gson gson = new Gson();
+				UserBean userBean = gson.fromJson(json, UserBean.class);
+				// 保存全局用戶信息
+				String password = BaseApplication.getUser().password;
+				if (userBean.content != null)
+				{
+					User user = userBean.content.member_data;
+					if (user != null && password != null)
+					{
+						user.password = password;
+						user.access_token = userBean.content.access_token;
+						BaseApplication.setUser(user);
+						PrintUtils.println("用户连接成功！");
+						startActivity(UserCenterUI.class);
+					}
+				}
+
+			}
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3)
+			{
+			}
+		});
 	}
 	@Override
 	public void setOnModifyIcon(CircleImageView civ)
@@ -204,6 +246,7 @@ public class UserInfoUI extends BaseActivity implements OnClickListener, OnModif
 			mUser.icon = iconUrl;
 			BaseApplication.setUser(mUser);
 			ToastUtils.makeShortText(UIUtils.getContext(), "上传成功！");
+			//TODO
 		}
 		catch (JSONException e)
 		{

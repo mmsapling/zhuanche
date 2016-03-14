@@ -1,5 +1,6 @@
 package com.baidu.zhuanche.ui.user;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -81,7 +82,7 @@ public class UserFindPwdNextUI extends BaseActivity implements OnClickListener
 	/**找回密码*/
 	private void doClickConfirm()
 	{
-		String pwd = mEtPassword.getText().toString();
+		final String pwd = mEtPassword.getText().toString();
 		String repwd = mEtRePassword.getText().toString();
 		if(TextUtils.isEmpty(pwd) || TextUtils.isEmpty(repwd)){
 			ToastUtils.makeShortText(this, "请完善好信息！");
@@ -106,7 +107,11 @@ public class UserFindPwdNextUI extends BaseActivity implements OnClickListener
 				//加密后的新密码，这里没处理TODO
 				ToastUtils.makeShortText(getApplicationContext(), "修改成功！");
 				//跳转到登陆
-				startActivityAndFinish(UserLoginUI.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("username", mMobile);
+				bundle.putString("password", pwd);
+				mSpUtils.putString("user_password", pwd);
+				startActivityAndFinish(UserLoginUI.class,bundle);
 			}
 		});
 		

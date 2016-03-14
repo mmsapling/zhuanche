@@ -1,5 +1,6 @@
 package com.baidu.zhuanche.ui.driver;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -81,7 +82,7 @@ public class DriverFindPwdNextUI extends BaseActivity implements OnClickListener
 	/**找回密码*/
 	private void doClickConfirm()
 	{
-		String pwd = mEtPassword.getText().toString();
+		final String pwd = mEtPassword.getText().toString();
 		String repwd = mEtRePassword.getText().toString();
 		if(TextUtils.isEmpty(pwd) || TextUtils.isEmpty(repwd)){
 			ToastUtils.makeShortText(this, "请完善好信息！");
@@ -106,7 +107,12 @@ public class DriverFindPwdNextUI extends BaseActivity implements OnClickListener
 				//加密后的新密码，这里没处理TODO
 				ToastUtils.makeShortText(getApplicationContext(), "修改成功！");
 				//跳转到登陆
-				startActivityAndFinish(DriverLoginUI.class);
+				//跳转到登陆
+				Bundle bundle = new Bundle();
+				bundle.putString("username", mMobile);
+				bundle.putString("password", pwd);
+				mSpUtils.putString("driver_password", pwd);
+				startActivityAndFinish(DriverLoginUI.class,bundle);
 			}
 		});
 		

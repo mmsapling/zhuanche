@@ -269,36 +269,7 @@ public class DriverHomeUI extends BaseActivity implements
 		}
 		else if (v == mIvRightHeader)
 		{
-			String url = URLS.BASESERVER + URLS.Driver.login;
-			RequestParams params = new RequestParams();
-			params.add("mobile", BaseApplication.getDriver().mobile);
-			params.add("password", BaseApplication.getDriver().password);
-			AsyncHttpClient client = AsyncHttpClientUtil.getInstance(UIUtils.getContext());
-			client.post(url, params, new AsyncHttpResponseHandler() {
-
-				@Override
-				public void onSuccess(int arg0, Header[] arg1, byte[] arg2)
-				{
-					String json = new String(arg2);
-					Gson gson = new Gson();
-					DriverBean driverBean = gson.fromJson(json, DriverBean.class);
-					// 保存全局用戶信息
-					String password = BaseApplication.getDriver().password;
-					Driver driver = driverBean.content.driver_data;
-					driver.password = password;
-					driver.access_token = driverBean.content.access_token;
-					BaseApplication.setDriver(driver);
-					PrintUtils.println("重新登陆下");
-					startActivity(DriverUI.class);
-				}
-
-				@Override
-				public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3)
-				{
-					ToastUtils.makeShortText("网络请求失败!");
-				}
-			});
-			
+			startActivity(DriverUI.class);
 		}
 	}
 
@@ -306,38 +277,11 @@ public class DriverHomeUI extends BaseActivity implements
 	public void onItemClick(AdapterView<?> parent, View view, final int position, long id)
 	{
 		// TODO 这里需要传值，将本条目的值传过去
-		String url = URLS.BASESERVER + URLS.Driver.login;
-		RequestParams params = new RequestParams();
-		params.add("mobile", BaseApplication.getDriver().mobile);
-		params.add("password", BaseApplication.getDriver().password);
-		AsyncHttpClient client = AsyncHttpClientUtil.getInstance(UIUtils.getContext());
-		client.post(url, params, new AsyncHttpResponseHandler() {
 
-			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2)
-			{
-				String json = new String(arg2);
-				Gson gson = new Gson();
-				DriverBean driverBean = gson.fromJson(json, DriverBean.class);
-				// 保存全局用戶信息
-				String password = BaseApplication.getDriver().password;
-				Driver driver = driverBean.content.driver_data;
-				driver.password = password;
-				driver.access_token = driverBean.content.access_token;
-				BaseApplication.setDriver(driver);
-				Bundle bundle = new Bundle();
-				bundle.putSerializable("orderbean", mDatas.get(position - 1));
-				PrintUtils.println("重新登陆下");
-				startActivity(AcceptOrderUI.class, bundle);
-			}
+		Bundle bundle = new Bundle();
+		bundle.putSerializable("orderbean", mDatas.get(position - 1));
+		startActivity(AcceptOrderUI.class, bundle);
 
-			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3)
-			{
-				ToastUtils.makeShortText("网络请求失败!");
-			}
-		});
-		
 	}
 
 	private class LoadMore implements Runnable

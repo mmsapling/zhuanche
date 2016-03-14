@@ -48,6 +48,7 @@ import com.baidu.zhuanche.conf.MyConstains;
 import com.baidu.zhuanche.conf.URLS;
 import com.baidu.zhuanche.listener.MyAsyncResponseHandler;
 import com.baidu.zhuanche.pay.apay.Keys;
+import com.baidu.zhuanche.pay.apay.PayResult;
 import com.baidu.zhuanche.pay.apay.Result;
 import com.baidu.zhuanche.pay.apay.Rsa;
 import com.baidu.zhuanche.utils.AsyncHttpClientUtil;
@@ -343,12 +344,28 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 	Handler	mHandler	= new Handler() {
 							public void handleMessage(android.os.Message msg)
 							{
-								Result result = new Result((String) msg.obj);
+								
 								switch (msg.what)
 								{
 									case RQF_PAY:
-										ToastUtils.makeShortText("result = " + result);
-										Log.d("tylz", "result=" + result);
+										PayResult payResult = new PayResult((String) msg.obj);
+										String resultInfo = payResult.getResult();
+										String resultStatus = payResult.getResultStatus();
+										if(resultStatus.equals("9000")){
+											ToastUtils.makeShortText("支付成功！");
+											mOrderBean.status = "2";
+											if (mAddFeeListener != null)
+											{
+												mAddFeeListener.onChangeStatus(mOrderBean);
+											}
+											setStatusData("2");
+										}else{
+											if(resultStatus.equals("8000")){
+												ToastUtils.makeShortText("支付结果确认中！");
+											}else{
+												ToastUtils.makeShortText("支付失败！");
+											}
+										}
 										break;
 									default:
 										break;

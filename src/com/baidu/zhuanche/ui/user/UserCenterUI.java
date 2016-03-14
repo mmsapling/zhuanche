@@ -83,21 +83,21 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 		ListView lv = mListView.getRefreshableView();
 		lv.addHeaderView(headerView);
 		// mListView.scrollBy(0, -1);
-
+		
 	}
 	@Override
 	public void onBackPressed()
 	{
-		finishActivity();
+		finishActivity(YuyueUI.class);
 	}
+//	@Override
+//	protected void onResume()
+//	{
+//		super.onResume();
+//		mImageUtils.display(mCivPic, URLS.BASE + mUser.icon);
+//	}
 	@Override
-	protected void onRestart()
-	{
-		super.onRestart();
-		mImageUtils.display(mCivPic, URLS.BASE + mUser.icon);
-	}
-	@Override
-	public void initData()
+	public void initData()   
 	{
 		super.initData();
 		mTvTitle.setText("个人中心");
@@ -131,7 +131,7 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 //			public void onSuccess(int arg0, Header[] arg1, byte[] arg2)
 //			{
 //				ToastUtils.closeProgress();
-//				String json = new String(arg2);
+//				String json = new String(arg2)    ;
 //				/** 得到数据 */
 //				processJson(json);
 //			}
@@ -203,7 +203,7 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 	{
 		if (v == mIvLeftHeader)
 		{
-			finishActivity();
+			finishActivity(YuyueUI.class);
 		}
 		else if (v == mContainerMsg)
 		{
@@ -234,16 +234,7 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 		startActivity(YuYueDetailUI.class, bundle);
 	}
 
-	private class LoadMoreTask implements Runnable
-	{
-
-		@Override
-		public void run()
-		{
-			loadMore();
-		}
-
-	}
+	
 
 	@Override
 	public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView)
@@ -251,85 +242,18 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 		setPullRefreshListUserRefresh(refreshView);
 		mDatas.clear();
 		currentpage = 1;
-		//mListView.postDelayed(new LoadMoreTask(), 1000);
-		// String url = URLS.BASESERVER + URLS.User.login;
-		// AsyncHttpClient client = AsyncHttpClientUtil.getInstance();
-		// RequestParams params = new RequestParams();
-		// params.add("mobile", mUser.mobile);
-		// params.add("password", mUser.password);
-		// params.add("receive_id", MD5Utils.encode(mUser.mobile));
-		// client.post(url, params, new MyAsyncResponseHandler() {
-		// @Override
-		// public void success(String json)
-		// {
-		// processLoginJson(json);
-		// }
-		// });
+	
 		loadMore();
 	}
-		private void processLoginJson(String json)
-		{
-			Gson gson = new Gson();
-			UserBean userBean = gson.fromJson(json, UserBean.class);
-			// 保存全局用戶信息
-			User user = userBean.content.member_data;
-			user.access_token = userBean.content.access_token;
-			user.password = mUser.password;
-			BaseApplication.setUser(user);
-			loadMore();
-		}
+		
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView)
 	{
 		setPullRefreshListUserLoadMoreData(refreshView);
-		//mListView.postDelayed(new LoadMoreTask(), 1000);
-		// String url = URLS.BASESERVER + URLS.User.login;
-		// AsyncHttpClient client = AsyncHttpClientUtil.getInstance();
-		// RequestParams params = new RequestParams();
-		// params.add("mobile", mUser.mobile);
-		// params.add("password", mUser.password);
-		// params.add("receive_id", MD5Utils.encode(mUser.mobile));
-		// client.post(url, params, new MyAsyncResponseHandler() {
-		// @Override
-		// public void success(String json)
-		// {
-		// processLoginJson(json);
-		// }
-		// });
+		
 		loadMore();
 	}
-	public void lianjie()
-	{
-		String url = URLS.BASESERVER + URLS.User.login;
-		AsyncHttpClient client = AsyncHttpClientUtil.getInstance();
-		RequestParams params = new RequestParams();
-		params.add("mobile", mUser.mobile);
-		params.add("password", mUser.password);
-		params.add("receive_id", MD5Utils.encode(mUser.mobile));
-		client.post(url, params, new AsyncHttpResponseHandler() {
-			
-			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2)
-			{
-				String json = new String(arg2);
-				Gson gson = new Gson();
-				UserBean userBean = gson.fromJson(json, UserBean.class);
-				// 保存全局用戶信息
-				User user = userBean.content.member_data;
-				user.access_token = userBean.content.access_token;
-				user.password = mUser.password;
-				BaseApplication.setUser(user);
-				Log.d("tylz1", "login");
-			}
-			
-			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3)
-			{
-				ToastUtils.makeShortText("连接服务器失败！");
-			}
-
-		});
-	}
+	
 	@Override
 	public void onModifyName(String name)
 	{

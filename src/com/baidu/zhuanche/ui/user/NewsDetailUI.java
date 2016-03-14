@@ -21,12 +21,13 @@ import com.loopj.android.http.RequestParams;
 
 
 /**
+ * 
  * @项目名: 	拼车
  * @包名:	com.baidu.zhuanche.ui.user
  * @类名:	NewsDetailUI
  * @创建者:	陈选文
- * @创建时间:	2016-1-7	下午6:13:37 
- * @描述:	新闻详情
+ * @创建时间:	2016-3-7	下午4:03:46 
+ * @描述:	TODO
  * 
  * @svn版本:	$Rev$
  * @更新人:	$Author$
@@ -54,7 +55,7 @@ public class NewsDetailUI extends BaseActivity implements OnClickListener
 	public void initData()
 	{
 		super.initData();
-		mTvTitle.setText("新闻详情");
+		mTvTitle.setText("详情");
 		String url = URLS.BASESERVER + URLS.User.article_detail;
 		RequestParams params = new RequestParams();
 		params.put("article_id", id);

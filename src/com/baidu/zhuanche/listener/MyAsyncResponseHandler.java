@@ -37,6 +37,9 @@ import com.loopj.android.http.RequestParams;
  */
 public abstract class MyAsyncResponseHandler extends AsyncHttpResponseHandler
 {
+	public MyAsyncResponseHandler(){
+		
+	}
 	@Override
 	public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3)
 	{
@@ -58,52 +61,7 @@ public abstract class MyAsyncResponseHandler extends AsyncHttpResponseHandler
 			ToastUtils.closeProgress();// 关闭进度条
 			PrintUtils.print("json =" + json);
 			final long code = JsonUtils.getCode(json);
-			User user = BaseApplication.getUser();
-			Driver driver = BaseApplication.getDriver();
-			
-
-			new AsyncTask<Void, Integer, Void>() {
-
-				@Override
-				protected void onPreExecute()
-				{
-					User user = BaseApplication.getUser();
-					Driver driver = BaseApplication.getDriver();
-					if (user != null)
-					{
-						PrintUtils.println("用户不等于空！");
-						//lianjieUser();
-					}
-					else if (driver != null)
-					{
-						PrintUtils.println("司机不等于空！");
-						//lianjieDriver();
-					}
-					super.onPreExecute();
-
-				}
-
-				@Override
-				protected Void doInBackground(Void... params)
-				{
-					return null;
-				}
-
-				@Override
-				protected void onPostExecute(Void result)
-				{
-					super.onPostExecute(result);
-					chuli(code, json);
-					// success(json);
-				}
-
-			}.execute();
-
-			// if (0 == code)
-			// {
-			//
-			// //success(json);
-			// }
+			chuli(code, json);
 
 		}
 		catch (JSONException e)
@@ -114,7 +72,20 @@ public abstract class MyAsyncResponseHandler extends AsyncHttpResponseHandler
 		}
 
 	}
-
+	public void conn(){
+		User user = BaseApplication.getUser();
+		Driver driver = BaseApplication.getDriver();
+		if (user != null)
+		{
+			PrintUtils.println("用户不等于空！");
+			lianjieUser();
+		}
+		else if (driver != null)
+		{
+			PrintUtils.println("司机不等于空！");
+			lianjieDriver();
+		}
+	}
 	/**
 	 * 用户模块
 	 */

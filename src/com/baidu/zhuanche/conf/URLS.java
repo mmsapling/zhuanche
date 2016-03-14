@@ -15,8 +15,8 @@ package com.baidu.zhuanche.conf;
  */
 public interface URLS
 {
-	String	BASE		= "http://gjxc.fanc.com.cn";
-	//String BASE = "http://192.168.1.12";
+//	String	BASE		= "http://gjxc.fanc.com.cn";
+	String BASE = "http://app.crossbordercar.com";
 	/**
 	 * 基地址
 	 */

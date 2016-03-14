@@ -182,7 +182,7 @@
                 <TextView
                     style="@style/accept_TextNormalStyle"
                     android:layout_marginTop="10dp"
-                    android:text="备注"
+                    android:text="備註"
                     android:textSize="18sp" />
 
                 <TextView
@@ -206,7 +206,7 @@
                 android:background="@drawable/xiangrigou_selector"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="接单"
+                android:text="接單"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>

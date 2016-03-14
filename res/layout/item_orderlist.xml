@@ -593,7 +593,7 @@
                 android:background="@drawable/smallbg_selector"
                 android:focusable="false"
                 android:text="去付款"
-                android:textColor="#0000ff"
+                android:textColor="#ffffff"
                 android:textSize="12sp" />
         </RelativeLayout>
     </LinearLayout>
