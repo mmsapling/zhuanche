@@ -54,19 +54,6 @@ import com.baidu.zhuanche.view.SelectPicPopupWindow;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.ResponseHandlerInterface;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.driver
- * @类名: IdentityCheckUI
- * @创建者: 陈选文
- * @创建时间: 2016-1-4 下午2:03:32
- * @描述: 身份审核
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public class RegisterIdentityCheckUI extends BaseActivity implements OnClickListener
 {
 	private Dialog					mDialog;										// 底部对话框

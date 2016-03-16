@@ -30,19 +30,7 @@ import com.baidu.zhuanche.utils.UIUtils;
 import com.baidu.zhuanche.view.CircleImageView;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.user
- * @类名: AssessDetailUI
- * @创建者: 陈选文
- * @创建时间: 2016-1-14 下午4:22:28
- * @描述: 用户端去评价页面
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class AssessDetailUI extends BaseActivity implements OnClickListener
 {
 	private OrderBean		mOrderBean;

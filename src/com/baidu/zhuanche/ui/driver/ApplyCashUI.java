@@ -19,19 +19,7 @@ import com.baidu.zhuanche.utils.ToastUtils;
 import com.baidu.zhuanche.utils.UIUtils;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.driver
- * @类名: ApplyCashUI
- * @创建者: 陈选文
- * @创建时间: 2016-1-6 上午9:12:59
- * @描述: 申请提现
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class ApplyCashUI extends BaseActivity implements OnClickListener
 {
 	private String		mCanCash;		// 可提现金额

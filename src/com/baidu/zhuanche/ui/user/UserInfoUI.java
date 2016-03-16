@@ -47,19 +47,6 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: ZhuanChe
- * @包名: com.baidu.zhuanche.activity
- * @类名: PersonalInfoActivity
- * @创建者: 陈选文
- * @创建时间: 2015-12-8 下午5:06:31
- * @描述: 个人信息界面
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public class UserInfoUI extends BaseActivity implements OnClickListener, OnModifyIconListener
 {
 	private Bitmap					head;							// 头像Bitmap

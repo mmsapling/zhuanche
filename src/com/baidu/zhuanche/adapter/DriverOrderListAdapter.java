@@ -1,12 +1,10 @@
 package com.baidu.zhuanche.adapter;
 
-import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.sax.StartElementListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -18,7 +16,6 @@ import com.baidu.zhuanche.base.MyBaseApdater;
 import com.baidu.zhuanche.bean.DriverCenterOrderListBean.OrderBean;
 import com.baidu.zhuanche.conf.URLS;
 import com.baidu.zhuanche.utils.AtoolsUtil;
-import com.baidu.zhuanche.utils.DateFormatUtil;
 import com.baidu.zhuanche.utils.ImageUtils;
 import com.baidu.zhuanche.utils.OrderUtil;
 import com.baidu.zhuanche.view.CircleImageView;

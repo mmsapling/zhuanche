@@ -4,7 +4,6 @@ import android.view.View;
 
 /**
  * @param <HOLDERBEANTYPE>
- * @创建者 陈选文
  * @创时间 2015-11-13 上午10:43:58
  * @描述 1.提供视图
  * @描述 2.接收数据

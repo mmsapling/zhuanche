@@ -76,19 +76,7 @@ import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui
- * @类名: YuyueUI
- * @创建者: 陈选文
- * @创建时间: 2015-12-26 下午5:50:58
- * @描述: 预约界面
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class CopyOfYuyueUI extends BaseActivity implements OnClickListener, OnGetOnLocationListener, OnGetOffLocationListener, AMapLocationListener, OnGeocodeSearchListener, OnCheckedChangeListener
 {
 	private Yuyue					mYuyueData;											// 预约所需值，都封装在这个class中

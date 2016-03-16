@@ -36,19 +36,7 @@ import com.baidu.zhuanche.view.CircleImageView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.driver
- * @类名: DriverCenterOrderDetailUI
- * @创建者: 陈选文
- * @创建时间: 2016-1-14 下午5:41:19
- * @描述: 司机中心订单详情
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class DriverCenterOrderDetailUI extends BaseActivity implements OnClickListener
 {
 	private OrderBean		mOrderBean;

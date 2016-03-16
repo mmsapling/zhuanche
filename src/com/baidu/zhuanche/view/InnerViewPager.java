@@ -68,4 +68,10 @@ public class InnerViewPager extends ViewPager {
 		}
 		return super.onTouchEvent(ev);
 	}
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent arg0)
+	{
+		// TODO Auto-generated method stub
+		return super.onInterceptTouchEvent(arg0);
+	}
 }

@@ -26,19 +26,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.user
- * @类名: NewsListUI
- * @创建者: 陈选文
- * @创建时间: 2016-1-7 上午9:49:05
- * @描述: 新闻列表
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class NewsListUI extends BaseActivity implements OnClickListener, OnRefreshListener<ListView>, OnItemClickListener
 {
 	private Cate					mCate;

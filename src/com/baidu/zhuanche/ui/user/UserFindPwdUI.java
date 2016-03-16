@@ -33,19 +33,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 
-/**
- * @项目名: 	拼车
- * @包名:	com.baidu.zhuanche.ui.user
- * @类名:	UserFindPasswordUI
- * @创建者:	陈选文
- * @创建时间:	2015-12-29	上午10:11:55 
- * @描述:	用户忘記密码界面
- * 
- * @svn版本:	$Rev$
- * @更新人:	$Author$
- * @更新时间:	$Date$
- * @更新描述:	TODO
- */
+
 public class UserFindPwdUI extends BaseActivity implements OnClickListener
 {
 	private EditText		mEtNumber;

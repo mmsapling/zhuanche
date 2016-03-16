@@ -206,6 +206,13 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 			holder.container_cancel.setVisibility(8);
 			holder.btPay.setVisibility(8);
 			holder.hahaha.setVisibility(8);
+		}else if("6".equals(bean.status)){
+			holder.container_daijiedan.setVisibility(8);
+			holder.btPay.setEnabled(false);
+			holder.container_yiyueyue.setVisibility(0);
+			holder.container_goAssess.setVisibility(8);
+			holder.container_lookAssess.setVisibility(8);
+			holder.container_cancel.setVisibility(8);
 		}
 		// 5 待评价 线下支付 等待评价 和2一样
 		/** 小费按钮点击事件 */

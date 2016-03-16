@@ -5,19 +5,6 @@ import java.util.List;
 
 import com.baidu.zhuanche.base.BaseBean;
 
-/**
- * @项目名: ZhuanChe
- * @包名: com.baidu.zhuanche.bean
- * @类名: OrderListBean
- * @创建者: 陈选文
- * @创建时间: 2015-12-8 上午11:57:46
- * @描述: 用户订单列表
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public class OrderListBean extends BaseBean implements Serializable
 {
 	/**

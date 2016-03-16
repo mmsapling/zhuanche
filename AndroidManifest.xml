@@ -81,9 +81,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+         <activity
+            android:name=".pay.wx.PayActivity"
+            android:exported="true"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wx8b7801cafb90604c" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.baidu.zhuanche.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
 
         <!-- 用户端 -->
-        <activity android:name=".ui.user.UserHomeUI"/>
+        <activity android:name=".ui.user.UserHomeUI" />
         <activity android:name=".ui.user.UserLoginSelectUI" />
         <activity android:name=".ui.user.UserLoginUI" />
         <activity android:name=".ui.user.UserCenterUI" />
@@ -99,7 +115,9 @@
         <activity android:name=".SplashUI" />
         <activity android:name=".ui.user.UserMessageUI" />
         <activity android:name=".ui.user.UserFindPasswordUI" />
-        <activity android:name=".ui.user.GetOnUI"  android:windowSoftInputMode="stateAlwaysHidden|stateHidden"/>
+        <activity
+            android:name=".ui.user.GetOnUI"
+            android:windowSoftInputMode="stateAlwaysHidden|stateHidden" />
         <activity android:name=".ui.user.GetOffUI" />
         <activity android:name=".ui.user.MyRouteUI" />
         <activity android:name=".ui.user.NewsListUI" />
@@ -110,9 +128,9 @@
         <activity android:name=".ui.user.UserFindPasswordNextUI" />
         <activity android:name=".ui.user.AssessDetailUI" />
         <activity android:name=".ui.user.LookAssessUI" />
-        <activity android:name=".ui.user.MoreNewsUI"/>
+        <activity android:name=".ui.user.MoreNewsUI" />
         <!-- 司机端 -->
-        <activity android:name=".ui.driver.ShowImgUI"/>
+        <activity android:name=".ui.driver.ShowImgUI" />
         <activity android:name=".ui.driver.DriverLoginUI" />
         <activity android:name=".ui.driver.DriverRegistUI" />
         <activity android:name=".ui.driver.DriverFindPasswordUI" />

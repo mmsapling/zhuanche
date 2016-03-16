@@ -25,12 +25,16 @@ import android.provider.MediaStore;
  */
 public class AtoolsUtil
 {
-	public static String getSpace(String range){
+	public static String getSpace(String range)
+	{
 		String space = "";
 		float r = Float.parseFloat(range);
-		if(r >= 1000){
+		if (r >= 1000)
+		{
 			space = (r / 1000 + 0.5f) + "km";
-		}else {
+		}
+		else
+		{
 			space = r + "m";
 		}
 		return space;
@@ -204,11 +208,11 @@ public class AtoolsUtil
 		}
 		else if ("2".equals(status))
 		{
-			text = "已付款";//去评价
+			text = "已付款";// 去评价
 		}
 		else if ("3".equals(status))
 		{
-			text = "已完成";//看评价
+			text = "已完成";// 看评价
 		}
 		else if ("4".equals(status))
 		{
@@ -217,6 +221,10 @@ public class AtoolsUtil
 		else if ("5".equals(status))
 		{
 			text = "待確認";
+		}
+		else if ("6".equals(status))
+		{
+			text = "已超时";
 		}
 		return text;
 	}

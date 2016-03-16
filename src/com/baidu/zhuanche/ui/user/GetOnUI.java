@@ -50,19 +50,7 @@ import com.baidu.zhuanche.utils.AMapUtil;
 import com.baidu.zhuanche.utils.GpsCorrectUtils;
 import com.baidu.zhuanche.utils.ToastUtils;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.user
- * @类名: BoardingLocationUI
- * @创建者: 陈选文
- * @创建时间: 2015-12-30 上午9:35:13
- * @描述: 上车地点
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class GetOnUI extends BaseActivity implements OnGeocodeSearchListener, AMapLocationListener
 {
 	private MapView							mMapView;

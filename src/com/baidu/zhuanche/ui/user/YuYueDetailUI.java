@@ -4,8 +4,13 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,9 +18,11 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Application;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -51,17 +58,27 @@ import com.baidu.zhuanche.pay.apay.Keys;
 import com.baidu.zhuanche.pay.apay.PayResult;
 import com.baidu.zhuanche.pay.apay.Result;
 import com.baidu.zhuanche.pay.apay.Rsa;
+import com.baidu.zhuanche.pay.wx.Constants;
+import com.baidu.zhuanche.pay.wx.MD5;
+import com.baidu.zhuanche.pay.wx.PayActivity;
+import com.baidu.zhuanche.pay.wx.Util;
 import com.baidu.zhuanche.utils.AsyncHttpClientUtil;
 import com.baidu.zhuanche.utils.JsonUtils;
+import com.baidu.zhuanche.utils.PrintUtils;
 import com.baidu.zhuanche.utils.ToastUtils;
 import com.baidu.zhuanche.utils.UIUtils;
 import com.baidu.zhuanche.view.CircleImageView;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
+import com.tencent.mm.sdk.modelpay.PayReq;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 public class YuYueDetailUI extends BaseActivity implements OnClickListener
 {
+	private IWXAPI				mWX			= WXAPIFactory.createWXAPI(this, null);
+	private PayReq				mWXReq;
 
 	private OrderBean			mOrderBean;
 	private RelativeLayout		mContainerDriver;
@@ -77,7 +94,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 	private Button				mBtStatus;
 	private User				user;
 	private LinearLayout		mContainerFee;
-	private RelativeLayout		mContainerItemFee;	;
+	private RelativeLayout		mContainerItemFee;									;
 	private TextView			mTvFee;
 
 	private RadioGroup			mRadioGroup;
@@ -99,6 +116,8 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 	public void initView()
 	{
 		setContentView(R.layout.ui_yuyue_detail);
+		mWXReq = new PayReq();
+		mWX.registerApp(Constants.APP_ID);
 		mContainerDriver = (RelativeLayout) findViewById(R.id.yyd_container_driver);
 		mTvPrice = (TextView) findViewById(R.id.yyd_tv_price);
 		mCivPic = (CircleImageView) findViewById(R.id.yyd_civ_pic);
@@ -195,6 +214,15 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 			mBtStatus.setText("等待确认");
 			mBtStatus.setEnabled(false);
 		}
+		else if ("6".equals(status))
+		{
+			// 已超时，显示司机 显示车费
+			mContainerDriver.setVisibility(0);
+			mContainerPay.setVisibility(8);
+			mContainerFee.setVisibility(8);
+			mBtStatus.setText("已超时");
+			mBtStatus.setEnabled(false);
+		}
 
 	}
 
@@ -266,6 +294,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 				payxianjing();
 				break;
 			case R.id.yyd_rb_weixin:
+				payweixin();
 				break;
 			case R.id.yyd_rb_zfb:
 				payzfb();
@@ -274,6 +303,81 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 				ToastUtils.makeShortText("请选择支付方式！");
 				break;
 		}
+	}
+
+	private void payweixin()
+	{
+		String url = URLS.BASESERVER + URLS.User.payment;
+		RequestParams params = new RequestParams();
+		params.put(URLS.ACCESS_TOKEN, BaseApplication.getUser().access_token);
+		params.put(URLS.TYPE, "wx");
+		params.put("sn", mOrderBean.sn);
+		mClient.post(url, params, new MyAsyncResponseHandler() {
+
+			@Override
+			public void success(String json)
+			{
+				processWXJson(json);
+			}
+		});
+	}
+	/**
+	 * 请求服务器拿到微信支付的数据
+	 * @param json
+	 */
+	protected void processWXJson(String json)
+	{
+		Log.d("tylz", json);
+		try
+		{
+			JSONObject jsonObject = JsonUtils.getContent(json);
+			
+			String appid = jsonObject.getString("appid");
+			Log.d("tylz", appid);
+			String noncestr = jsonObject.getString("noncestr");
+			String package2 = jsonObject.getString("package");
+			String partnerid = jsonObject.getString("partnerid");
+			String prepayid = jsonObject.getString("prepayid");
+			String sign = jsonObject.getString("sign");
+			String timestamp = jsonObject.getString("timestamp");
+			// 支付参数
+			mWXReq.appId = appid;
+			mWXReq.nonceStr = noncestr;
+			mWXReq.partnerId = partnerid;
+			mWXReq.packageValue = package2;
+			mWXReq.prepayId = prepayid;
+			mWXReq.timeStamp = timestamp;
+			mWXReq.sign = sign;
+			// 调起微信支付
+			mWX.sendReq(mWXReq);
+		}
+		catch (JSONException e)
+		{
+			ToastUtils.makeShortText("微信Json出错");
+			e.printStackTrace();
+		}
+	}
+
+
+
+	private String genAppSign(List<NameValuePair> params)
+	{
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < params.size(); i++)
+		{
+			sb.append(params.get(i).getName());
+			sb.append('=');
+			sb.append(params.get(i).getValue());
+			sb.append('&');
+		}
+		sb.append("key=");
+		sb.append(Constants.API_KEY);
+
+		sb.append("sign str\n" + sb.toString() + "\n\n");
+		String appSign = MD5.getMessageDigest(sb.toString().getBytes())
+							.toUpperCase();
+		return appSign;
 	}
 
 	/**
@@ -344,14 +448,15 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 	Handler	mHandler	= new Handler() {
 							public void handleMessage(android.os.Message msg)
 							{
-								
+
 								switch (msg.what)
 								{
 									case RQF_PAY:
 										PayResult payResult = new PayResult((String) msg.obj);
 										String resultInfo = payResult.getResult();
 										String resultStatus = payResult.getResultStatus();
-										if(resultStatus.equals("9000")){
+										if (resultStatus.equals("9000"))
+										{
 											ToastUtils.makeShortText("支付成功！");
 											mOrderBean.status = "2";
 											if (mAddFeeListener != null)
@@ -359,10 +464,15 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 												mAddFeeListener.onChangeStatus(mOrderBean);
 											}
 											setStatusData("2");
-										}else{
-											if(resultStatus.equals("8000")){
+										}
+										else
+										{
+											if (resultStatus.equals("8000"))
+											{
 												ToastUtils.makeShortText("支付结果确认中！");
-											}else{
+											}
+											else
+											{
 												ToastUtils.makeShortText("支付失败！");
 											}
 										}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="bg">#F6F6F6</color>
     <color name="textColor">#999999</color>
     <color name="item_bg_press_F6">#F6F6F6</color>
@@ -8,21 +9,21 @@
     <color name="title">#1368AA</color>
     <!-- 对话框中内容 条目的文字颜色 -->
     <color name="item_textColor">#000000</color>
-    
+
     <!-- 分割线的颜色 -->
     <color name="divide_color">#E5E5E5</color>
     <!-- listview分隔线的颜色 -->
     <color name="divide_listview_color">#E5E5E5</color>
     <!-- 预约列表信息的字体颜色 -->
     <color name="item_yuyue_textColor">#666666</color>
-    
+
     <!-- ********个人信息******* -->
     <color name="info_bg">#F6F6F6</color>
     <color name="info_textColor">#7E7E7E</color>
     <color name="info_ItemColor">#AEAEAE</color>
     <!-- 条目背景 -->
     <color name="info_bg_color">#fff</color>
-    
+
     <!-- Time-Picker日期选择器 -->
     <color name="colorPrimary">#FF5722</color>
     <color name="white">#ffffff</color>
@@ -30,13 +31,11 @@
     <color name="price_color">#FFA55D</color>
     <!-- money背景颜色 -->
     <color name="bg_money">#ff8c03</color>
-    
-    
     <color name="black">#000000</color>
     <color name="gray">#aaaaaa</color>
     <color name="light_blue">#6593cb</color>
-    
-      <!-- 框框 -->
+
+    <!-- 框框 -->
     <color name="body_radius_bg_color">#fefefe</color>
     <color name="body_radius_gary_bg_color">#ebebeb</color>
     <color name="body_rectangle_while_bg_color">#ffffff</color>
@@ -46,7 +45,18 @@
     <color name="border_color_dddddd">#dddddd</color>
     <color name="lines_color">#e3e3e3</color>
     <color name="blue">#2080D0</color>
-    
-      <color name="backgroundColor">#E8E8E0</color>
+    <color name="backgroundColor">#E8E8E0</color>
     <color name="backgroundColorPress">#DBDBD3</color>
+    <color name="navpage">#FFE1E8EB</color>
+  <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue">#ffccddff</color>
+    <color name="grey">#58616d</color>
+    <color name="darkgrey">#ff404040</color>
+    <color name="toasterro">#9fd524</color>
+    <color name="lightgrey">#ff888888</color>
+    <color name="semitransparent">#80000000</color>
+    <color name="lightransparent">#a0000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="navpage">#FFE1E8EB</color>
 </resources>

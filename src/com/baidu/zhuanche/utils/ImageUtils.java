@@ -190,6 +190,9 @@ public class ImageUtils
 
 				// 将流转化为bitmap
 				Bitmap bitmap = BitmapFactory.decodeStream(is);
+				if(bitmap == null){
+					return;
+				}
 				// 存储到本地
 				save2Disk(mUrl, bitmap);
 

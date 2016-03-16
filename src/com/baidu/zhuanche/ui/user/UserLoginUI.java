@@ -36,19 +36,7 @@ import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: ZhuanChe
- * @包名: com.baidu.zhuanche.activity
- * @类名: ulActivity
- * @创建者: 陈选文
- * @创建时间: 2015-12-23 上午8:48:37
- * @描述: 用户登陆界面
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class UserLoginUI extends BaseActivity implements OnClickListener
 {
 	private TextView		mTvQuhao;

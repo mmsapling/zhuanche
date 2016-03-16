@@ -19,19 +19,7 @@ import com.baidu.zhuanche.fragment.GoingOrderFragment;
 import com.baidu.zhuanche.fragment.PayedOrderFragment;
 import com.baidu.zhuanche.view.NoScrollViewPager;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.driver
- * @类名: DriverAllOrderUI
- * @创建者: 陈选文
- * @创建时间: 2016-1-7 上午10:38:11
- * @描述: 司机全部订单
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class DriverAllOrderUI extends FragmentActivity implements OnClickListener
 {
 	private TextView			mContainerAll;

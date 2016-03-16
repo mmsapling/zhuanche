@@ -22,19 +22,7 @@ import com.baidu.zhuanche.listener.MyAsyncResponseHandler;
 import com.baidu.zhuanche.utils.ToastUtils;
 import com.google.gson.Gson;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.user
- * @类名: MoreNewsUI
- * @创建者: 陈选文
- * @创建时间: 2016-2-19 上午8:35:02
- * @描述: TODO
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class MoreNewsUI extends BaseActivity implements OnItemClickListener
 {
 	public ListView			mListView;

@@ -18,6 +18,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 
 public class CircleImageView extends ImageView
@@ -270,5 +271,5 @@ public class CircleImageView extends ImageView
 
 		mBitmapShader.setLocalMatrix(mShaderMatrix);
 	}
-
+	
 }

@@ -21,17 +21,18 @@ import com.baidu.zhuanche.base.BaseActivity;
 import com.baidu.zhuanche.ui.user.UserHomeUI;
 
 /**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui
- * @类名: MainActivity
- * @创建者: 陈选文
- * @创建时间: 2016-1-27 上午10:21:27
- * @描述: TODO
  * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
+ * @项目名: 	拼车
+ * @包名:	com.baidu.zhuanche.ui
+ * @类名:	MainActivity
+ * @创建者:	mmsapling
+ * @创建时间:	2016-3-16	下午4:40:28 
+ * @描述:	TODO
+ * 
+ * @svn版本:	$Rev$
+ * @更新人:	$Author$
+ * @更新时间:	$Date$
+ * @更新描述:	TODO
  */
 public class MainActivity extends BaseActivity implements OnPageChangeListener
 {

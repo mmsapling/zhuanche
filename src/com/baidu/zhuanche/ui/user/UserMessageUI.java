@@ -24,20 +24,7 @@ import com.baidu.zhuanche.zlist.widget.ZListView;
 import com.baidu.zhuanche.zlist.widget.ZListView.IXListViewListener;
 import com.loopj.android.http.RequestParams;
 
-/**
- * 
- * @项目名: ZhuanChe
- * @包名: com.baidu.zhuanche.activity
- * @类名: MyMessageActivity
- * @创建者: 陈选文
- * @创建时间: 2015-12-21 上午10:09:06
- * @描述: 我的消息界面
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class UserMessageUI extends BaseActivity implements OnClickListener, IXListViewListener
 {
 	private ZListView				mListView;

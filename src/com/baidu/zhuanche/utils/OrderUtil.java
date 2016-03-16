@@ -49,6 +49,10 @@ public class OrderUtil
 				break;
 			case 5:
 				text = "等待确认";
+				break;
+			case 6:
+				text = "已超时";
+				break;
 			default:
 				break;
 		}

@@ -25,19 +25,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.ui.driver
- * @类名: WithDrawRecordUI
- * @创建者: 陈选文
- * @创建时间: 2016-1-5 下午5:01:50
- * @描述: 提现记录
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
+
 public class WithDrawRecordUI extends BaseActivity implements OnClickListener, OnRefreshListener<ListView>
 {
 	private PullToRefreshListView	mListView;
