@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -494,7 +495,11 @@ public abstract class BaseActivity extends Activity
 	public void setUserAligs()
 	{
 		Set<String> tags = new HashSet<String>();
-		tags.add(MD5Utils.encode(BaseApplication.getUser().mobile));
+		User user = BaseApplication.getUser();
+		if(user == null || TextUtils.isEmpty(user.mobile)){
+			return;
+		}
+		tags.add(MD5Utils.encode(user.mobile));
 		JPushInterface.setAliasAndTags(this, "aligs", tags, new TagAliasCallback() {
 
 			@Override
@@ -528,8 +533,12 @@ public abstract class BaseActivity extends Activity
 	public void setDriverAligs()
 	{
 		Set<String> tags = new HashSet<String>();
-		tags.add(MD5Utils.encode(BaseApplication.getDriver().mobile));
-		PrintUtils.print("司機別名=" + MD5Utils.encode(BaseApplication.getDriver().mobile));
+		Driver driver = BaseApplication.getDriver();
+		if(driver == null || TextUtils.isEmpty(driver.mobile)){
+			return;
+		}
+		tags.add(MD5Utils.encode(driver.mobile));
+		PrintUtils.print("司機別名=" + MD5Utils.encode(driver.mobile));
 		JPushInterface.setAliasAndTags(this, "aligs", tags, new TagAliasCallback() {
 
 			@Override

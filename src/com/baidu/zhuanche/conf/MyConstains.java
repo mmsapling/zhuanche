@@ -1,18 +1,5 @@
 package com.baidu.zhuanche.conf;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.conf
- * @类名: MyConstains
- * @创建者: 陈选文
- * @创建时间: 2015-12-23 下午4:28:28
- * @描述: TODO
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public interface MyConstains
 {
 	boolean	OPEN_LONG_SERVICE	= false;
@@ -29,4 +16,5 @@ public interface MyConstains
 																								// 服务的最大值
 	String	ACTION_USER_NAME	= "com.cxw.longconnectiondemo.service.UserConnectService";
 	String	ACTION_DRIVER_NAME	= "com.cxw.longconnectiondemo.service.DriverConnectService";
+	String	ACTION_WXPAY		= "com.baidu.zhuanche.receiver.weixinpay";
 }

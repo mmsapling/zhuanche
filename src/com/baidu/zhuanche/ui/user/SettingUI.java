@@ -115,7 +115,7 @@ public class SettingUI extends BaseActivity implements OnClickListener, OnToggle
 		}
 		else if (v == mContainerPassword)
 		{
-			startActivity(UserFindPasswordUI.class);
+			startActivity(UserEditPwdUI.class);
 		}
 		else if (v == mContainerCache)
 		{

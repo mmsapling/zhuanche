@@ -13,19 +13,6 @@ import com.baidu.zhuanche.bean.WithDrawRecordBean.WithDraw;
 import com.baidu.zhuanche.utils.AtoolsUtil;
 import com.baidu.zhuanche.utils.DateFormatUtil;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.adapter
- * @类名: WidthDrawRecordAdapter
- * @创建者: 陈选文
- * @创建时间: 2016-1-5 下午5:36:44
- * @描述: 提现记录适配器
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public class WidthDrawRecordAdapter extends MyBaseApdater<WithDraw>
 {
 

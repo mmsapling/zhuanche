@@ -13,19 +13,6 @@ import com.baidu.zhuanche.base.MyBaseApdater;
 import com.baidu.zhuanche.bean.AccountBean.Account;
 import com.baidu.zhuanche.utils.DateFormatUtil;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.adapter
- * @类名: AccountAdapter
- * @创建者: 陈选文
- * @创建时间: 2016-1-6 上午11:07:54
- * @描述: 进帐适配器
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public class AccountAdapter extends MyBaseApdater<Account>
 {
 

@@ -22,7 +22,7 @@ public class DriverFindPasswordNextUI extends BaseActivity implements OnClickLis
 	private EditText	mEtRePassword;
 	private Button		mBtConfirm;
 	private String		mCode;
-	private String		mMobile;
+	private String 		mMobile;
 
 	@Override
 	public void init()

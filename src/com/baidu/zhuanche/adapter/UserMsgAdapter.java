@@ -12,19 +12,6 @@ import com.baidu.zhuanche.base.MyBaseApdater;
 import com.baidu.zhuanche.bean.Msg;
 import com.baidu.zhuanche.utils.AtoolsUtil;
 
-/**
- * @项目名: ZhuanChe
- * @包名: com.baidu.zhuanche.adapter
- * @类名: MyMsgAdapter
- * @创建者: 陈选文
- * @创建时间: 2015-12-21 上午10:27:04
- * @描述: 消息适配器
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public class UserMsgAdapter extends MyBaseApdater<Msg>
 {
 	public UserMsgAdapter(Context context, List<Msg> mDatas) {

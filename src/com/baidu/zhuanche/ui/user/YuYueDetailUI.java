@@ -19,8 +19,11 @@ import android.app.AlertDialog.Builder;
 import android.app.Application;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -41,6 +44,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alipay.android.app.sdk.AliPay;
+import com.baidu.zhuanche.PayActivity;
 import com.baidu.zhuanche.R;
 import com.baidu.zhuanche.adapter.DialogSignAdapter;
 import com.baidu.zhuanche.base.BaseActivity;
@@ -60,7 +64,6 @@ import com.baidu.zhuanche.pay.apay.Result;
 import com.baidu.zhuanche.pay.apay.Rsa;
 import com.baidu.zhuanche.pay.wx.Constants;
 import com.baidu.zhuanche.pay.wx.MD5;
-import com.baidu.zhuanche.pay.wx.PayActivity;
 import com.baidu.zhuanche.pay.wx.Util;
 import com.baidu.zhuanche.utils.AsyncHttpClientUtil;
 import com.baidu.zhuanche.utils.JsonUtils;
@@ -77,7 +80,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 public class YuYueDetailUI extends BaseActivity implements OnClickListener
 {
-	private IWXAPI				mWX			= WXAPIFactory.createWXAPI(this, null);
+	private IWXAPI				mWX;
 	private PayReq				mWXReq;
 
 	private OrderBean			mOrderBean;
@@ -94,7 +97,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 	private Button				mBtStatus;
 	private User				user;
 	private LinearLayout		mContainerFee;
-	private RelativeLayout		mContainerItemFee;									;
+	private RelativeLayout		mContainerItemFee;	;
 	private TextView			mTvFee;
 
 	private RadioGroup			mRadioGroup;
@@ -110,14 +113,15 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 		mOrderBean = (OrderBean) bundle.getSerializable(MyConstains.ITEMBEAN);
 		position = bundle.getInt("position");
 		user = BaseApplication.getUser();
+		IntentFilter filter = new IntentFilter(MyConstains.ACTION_WXPAY);
+		mBroadcast = new PayWXSuccessBroadcast();
+		registerReceiver(mBroadcast, filter);
 	}
 
 	@Override
 	public void initView()
 	{
 		setContentView(R.layout.ui_yuyue_detail);
-		mWXReq = new PayReq();
-		mWX.registerApp(Constants.APP_ID);
 		mContainerDriver = (RelativeLayout) findViewById(R.id.yyd_container_driver);
 		mTvPrice = (TextView) findViewById(R.id.yyd_tv_price);
 		mCivPic = (CircleImageView) findViewById(R.id.yyd_civ_pic);
@@ -307,6 +311,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 
 	private void payweixin()
 	{
+
 		String url = URLS.BASESERVER + URLS.User.payment;
 		RequestParams params = new RequestParams();
 		params.put(URLS.ACCESS_TOKEN, BaseApplication.getUser().access_token);
@@ -321,17 +326,22 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 			}
 		});
 	}
+
 	/**
 	 * 请求服务器拿到微信支付的数据
+	 * 
 	 * @param json
 	 */
 	protected void processWXJson(String json)
 	{
 		Log.d("tylz", json);
+		mWX = WXAPIFactory.createWXAPI(this, null);
+		mWXReq = new PayReq();
+		mWX.registerApp(Constants.APP_ID);
 		try
 		{
 			JSONObject jsonObject = JsonUtils.getContent(json);
-			
+
 			String appid = jsonObject.getString("appid");
 			Log.d("tylz", appid);
 			String noncestr = jsonObject.getString("noncestr");
@@ -357,8 +367,6 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 			e.printStackTrace();
 		}
 	}
-
-
 
 	private String genAppSign(List<NameValuePair> params)
 	{
@@ -663,6 +671,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 	private int						position;
 
 	private static OnAddFeeListener	mAddFeeListener;
+	private PayWXSuccessBroadcast	mBroadcast;
 
 	public static void setOnAddFeeListener(OnAddFeeListener addFeeListener)
 	{
@@ -753,4 +762,46 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 		}
 	}
 
+	/**
+	 * 微信
+	 * 
+	 */
+	public class PayWXSuccessBroadcast extends BroadcastReceiver
+	{
+
+		@Override
+		public void onReceive(Context context, Intent intent)
+		{
+			int result = -1;
+			result = intent.getIntExtra("result", -1);
+			switch (result)
+			{
+				case 0:
+					mOrderBean.status = "2";
+					if (mAddFeeListener != null)
+					{
+						mAddFeeListener.onChangeStatus(mOrderBean);
+					}
+					setStatusData("2");
+					ToastUtils.makeShortText("支付完成！");
+					break;
+
+				default:
+					ToastUtils.makeShortText("支付失败！");
+					break;
+			}
+
+		}
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		super.onDestroy();
+		if (mBroadcast != null)
+		{
+			unregisterReceiver(mBroadcast);
+			mBroadcast = null;
+		}
+	}
 }

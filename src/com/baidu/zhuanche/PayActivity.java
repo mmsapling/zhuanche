@@ -1,4 +1,4 @@
-package com.baidu.zhuanche.pay.wx;
+package com.baidu.zhuanche;
 
 import java.io.StringReader;
 import java.util.HashMap;

@@ -50,19 +50,6 @@ import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.adapter
- * @类名: OrderAdapter
- * @创建者: 陈选文
- * @创建时间: 2015-12-25 下午3:23:20
- * @描述: TODO
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeListener, OnAssessListener
 {
 	private User	mUser;

@@ -1,18 +1,5 @@
 package com.baidu.zhuanche.conf;
 
-/**
- * @项目名: ZhuanChe
- * @包名: com.baidu.zhuanche.utils
- * @类名: URLS
- * @创建者: 陈选文
- * @创建时间: 2015-12-3 下午2:00:07
- * @描述: 接口地址
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public interface URLS
 {
 //	String	BASE		= "http://gjxc.fanc.com.cn";
@@ -56,6 +43,7 @@ public interface URLS
 		String  fee					= "User/User/fee";
 		String  feedback			= "User/User/feedback"; // 1 user 2 driver
 		// http://192.168.1.12/pinche/index.php/User/Login/article_detail
+		String editpassword			= "User/User/editpassword"; //修改密碼
 	}
 
 	/**
@@ -93,6 +81,7 @@ public interface URLS
 		String	cleanWithdraw		= "Driver/Driver/cleanWithdraw";
 		String	finished			= "Driver/Driver/finished";
 		String  feedback			= "Driver/Driver/feedback"; // 1 user 2 driver
+		String editpassword			= "Driver/Driver/editpassword"; //修改密碼
 		
 	}
 

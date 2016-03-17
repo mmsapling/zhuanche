@@ -14,19 +14,6 @@ import com.baidu.zhuanche.bean.UserIndexBean.Article;
 import com.baidu.zhuanche.conf.URLS;
 import com.baidu.zhuanche.utils.ImageUtils;
 
-/**
- * @项目名: 拼车
- * @包名: com.baidu.zhuanche.adapter
- * @类名: HotAskAdapter
- * @创建者: 陈选文
- * @创建时间: 2015-12-28 下午5:41:01
- * @描述: TODO
- * 
- * @svn版本: $Rev$
- * @更新人: $Author$
- * @更新时间: $Date$
- * @更新描述: TODO
- */
 public class HotAskAdapter extends MyBaseApdater<Article>
 {
 

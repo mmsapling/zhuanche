@@ -906,7 +906,8 @@ public class YuyueUI extends BaseActivity implements OnClickListener, OnGetOnLoc
 	/** 时间 */
 	private void doClickTime()
 	{
-		String initStartDateTime = DateUtil.format(new Date(), "yyyy-MM-dd HH:mm"); // 初始化开始时间
+		long currentTime = new Date().getTime();// + 1000 * 60 * 60 * 3; 
+		String initStartDateTime = DateUtil.format(new Date(currentTime), "yyyy-MM-dd HH:mm"); // 初始化开始时间
 		TimeSelector timeSelector = new TimeSelector(this, new TimeSelector.ResultHandler() {
 			@Override
 			public void handle(String time)

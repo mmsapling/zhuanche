@@ -82,7 +82,7 @@
             </intent-filter>
         </activity>
          <activity
-            android:name=".pay.wx.PayActivity"
+            android:name="com.baidu.zhuanche.PayActivity"
             android:exported="true"
             android:launchMode="singleTop" >
             <intent-filter>
@@ -99,6 +99,7 @@
             android:launchMode="singleTop" />
 
         <!-- 用户端 -->
+        <activity android:name=".ui.user.UserEditPwdUI"/>
         <activity android:name=".ui.user.UserHomeUI" />
         <activity android:name=".ui.user.UserLoginSelectUI" />
         <activity android:name=".ui.user.UserLoginUI" />
@@ -160,6 +161,7 @@
         <activity android:name=".ui.driver.RegisterIdentityCheckUI" />
         <activity android:name=".ui.driver.CompleteUI" />
         <activity android:name=".ui.driver.CopyOfFeedBackUI" />
+        <activity android:name=".ui.driver.DriverEditPasswordUI"/>
         <activity
             android:name=".ui.driver.ReIdentityCheckUI"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
@@ -262,7 +264,11 @@
                 <category android:name="com.baidu.zhuanche" />
             </intent-filter>
         </receiver>
-
+		 <receiver android:name=".pay.wx.AppRegister" >
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
         <!-- Required. For publish channel feature -->
         <!-- JPUSH_CHANNEL 是为了方便开发者统计APK分发渠道。 -->
         <!-- 例如: -->
