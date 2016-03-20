@@ -220,12 +220,25 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 		}
 		else if ("6".equals(status))
 		{
-			// 已超时，显示司机 显示车费
-			mContainerDriver.setVisibility(0);
-			mContainerPay.setVisibility(8);
-			mContainerFee.setVisibility(8);
-			mBtStatus.setText("已超时");
-			mBtStatus.setEnabled(false);
+			//已超时，司机没有接单，不显示司机
+			DriverInfo driverInfo = mOrderBean.d_del;
+			
+			if(TextUtils.isEmpty(driverInfo.name)){
+				// 已超时，显示司机 显示车费
+				mContainerDriver.setVisibility(8);
+				mContainerPay.setVisibility(8);
+				mContainerFee.setVisibility(8);
+				mBtStatus.setText("已超时");
+				mBtStatus.setEnabled(false);
+			}else{
+				// 已超时，显示司机 显示车费
+				mContainerDriver.setVisibility(0);
+				mContainerPay.setVisibility(8);
+				mContainerFee.setVisibility(8);
+				mBtStatus.setText("已超时");
+				mBtStatus.setEnabled(false);
+			}
+			
 		}
 
 	}

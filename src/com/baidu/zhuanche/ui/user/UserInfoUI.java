@@ -105,51 +105,16 @@ public class UserInfoUI extends BaseActivity implements OnClickListener, OnModif
 	public void onClick(View v)
 	{
 		if(v == mIvLeftHeader){
-			reLogin();
+			finishActivity();
 		}
 	}
 	@Override
 	public void onBackPressed()
 	{
-		reLogin();
+		finishActivity();
 		
 	}
-	public void reLogin(){
-		String url = URLS.BASESERVER + URLS.User.login;
-		RequestParams params = new RequestParams();
-		params.add("mobile", BaseApplication.getUser().mobile);
-		params.add("password", BaseApplication.getUser().password);
-		AsyncHttpClient client = AsyncHttpClientUtil.getInstance(UIUtils.getContext());
-		client.post(url, params, new AsyncHttpResponseHandler() {
-
-			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2)
-			{
-				String json = new String(arg2);
-				Gson gson = new Gson();
-				UserBean userBean = gson.fromJson(json, UserBean.class);
-				// 保存全局用戶信息
-				String password = BaseApplication.getUser().password;
-				if (userBean.content != null)
-				{
-					User user = userBean.content.member_data;
-					if (user != null && password != null)
-					{
-						user.password = password;
-						user.access_token = userBean.content.access_token;
-						BaseApplication.setUser(user);
-						PrintUtils.println("用户连接成功！");
-						startActivity(UserCenterUI.class);
-					}
-				}
-
-			}
-			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3)
-			{
-			}
-		});
-	}
+	
 	@Override
 	public void setOnModifyIcon(CircleImageView civ)
 	{

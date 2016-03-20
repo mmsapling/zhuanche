@@ -194,12 +194,23 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 			holder.btPay.setVisibility(8);
 			holder.hahaha.setVisibility(8);
 		}else if("6".equals(bean.status)){
-			holder.container_daijiedan.setVisibility(8);
-			holder.btPay.setEnabled(false);
-			holder.container_yiyueyue.setVisibility(0);
-			holder.container_goAssess.setVisibility(8);
-			holder.container_lookAssess.setVisibility(8);
-			holder.container_cancel.setVisibility(8);
+			if(TextUtils.isEmpty(driverInfo.name)){
+				//预约中，司机没有接单
+				holder.container_daijiedan.setVisibility(0);
+				holder.container_yiyueyue.setVisibility(8);
+				holder.container_goAssess.setVisibility(8);
+				holder.container_lookAssess.setVisibility(8);
+				holder.container_cancel.setVisibility(8);
+				holder.btAddFee.setEnabled(false);
+			}else{
+				holder.container_daijiedan.setVisibility(8);
+				holder.btPay.setEnabled(false);
+				holder.container_yiyueyue.setVisibility(0);
+				holder.container_goAssess.setVisibility(8);
+				holder.container_lookAssess.setVisibility(8);
+				holder.container_cancel.setVisibility(8);
+			}
+			
 		}
 		// 5 待评价 线下支付 等待评价 和2一样
 		/** 小费按钮点击事件 */

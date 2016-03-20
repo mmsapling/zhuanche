@@ -8,6 +8,7 @@ import org.apache.http.Header;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -102,6 +103,9 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 		super.initData();
 		mTvTitle.setText("个人中心");
 		mUser = BaseApplication.getUser();
+		if(mUser==null ||TextUtils.isEmpty(mUser.mobile)){
+			return;
+		}
 		mImageUtils.display(mCivPic, URLS.BASE + mUser.icon);
 		mTvNumber.setText(AtoolsUtil.mobile4(mUser.mobile));
 		mTvName.setText(mUser.username);

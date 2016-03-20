@@ -131,6 +131,9 @@ public class AtoolsUtil
 	 */
 	public static String mobile4(String phone2)
 	{
+		if(phone2.length() != 11){
+			return phone2;
+		}
 		return phone2.substring(0, 3) + "****" + phone2.substring(7, phone2.length());
 	}
 
