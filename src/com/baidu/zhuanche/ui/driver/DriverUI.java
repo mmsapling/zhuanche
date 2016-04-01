@@ -3,8 +3,12 @@ package com.baidu.zhuanche.ui.driver;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -30,6 +34,7 @@ import com.baidu.zhuanche.conf.URLS;
 import com.baidu.zhuanche.listener.MyAsyncResponseHandler;
 import com.baidu.zhuanche.ui.driver.CompleteUI.OnModifyListener;
 import com.baidu.zhuanche.ui.driver.DriverCenterOrderDetailUI.OnChangeStatusListener;
+import com.baidu.zhuanche.utils.JsonUtils;
 import com.baidu.zhuanche.utils.PrintUtils;
 import com.baidu.zhuanche.utils.ToastUtils;
 import com.baidu.zhuanche.utils.UIUtils;
@@ -67,12 +72,36 @@ public class DriverUI extends BaseActivity implements OnClickListener, OnRefresh
 		super.init();
 		driver = BaseApplication.getDriver();
 	}
+
 	@Override
 	protected void onRestart()
 	{
 		super.onRestart();
 		mListView.smoothScrollToPosition(0, 0);
+		String url = URLS.BASESERVER + URLS.Driver.score;
+		RequestParams params = new RequestParams();
+		params.add(URLS.ACCESS_TOKEN, BaseApplication.getDriver().access_token);
+		mClient.post(url, params, new MyAsyncResponseHandler() {
+
+			@Override
+			public void success(String json)
+			{
+				//mRatingBar.setRating(rating);
+				try
+				{
+					JSONObject object = new JSONObject(json);
+					String score = object.getString("content");
+					mRatingBar.setRating(Float.parseFloat(score));
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+				
+			}
+		});
 	}
+
 	@Override
 	public void initView()
 	{
@@ -104,7 +133,11 @@ public class DriverUI extends BaseActivity implements OnClickListener, OnRefresh
 		mRefreshScrollView.setMode(Mode.PULL_FROM_END);
 		mListView.setAdapter(mAdapter);
 		setEmptyView(mListView, "沒有訂單列表數據");
-		mImageUtils.display(mCivPhoto, URLS.BASE + driver.icon);
+		if (!TextUtils.isEmpty(driver.icon))
+		{
+
+			mImageUtils.display(mCivPhoto, URLS.BASE + driver.icon);
+		}
 		mTvName.setText(driver.username);
 		mRatingBar.setRating(Float.parseFloat(driver.star));
 		ToastUtils.showProgress(this);
@@ -186,8 +219,8 @@ public class DriverUI extends BaseActivity implements OnClickListener, OnRefresh
 		}
 		else if (v == mContainerIdentity)
 		{
-			/*如果需求改變，需要調用下面doClickIdentity*/
-			//startActivity(IdentityCheckUI.class);
+			/* 如果需求改變，需要調用下面doClickIdentity */
+			// startActivity(IdentityCheckUI.class);
 			doClickIdentity();
 		}
 		else if (v == mContainerMessage)
@@ -209,19 +242,24 @@ public class DriverUI extends BaseActivity implements OnClickListener, OnRefresh
 		{
 			// 全部评价
 			startActivity(DriverAllAssessUI.class);
-		}else if(v == mCivPhoto){
-			//完善資料
+		}
+		else if (v == mCivPhoto)
+		{
+			// 完善資料
 			startActivity(CompleteUI.class);
 		}
 	}
 
 	private void doClickIdentity()
 	{
-		/*根據狀態是否審覈成功*/
+		/* 根據狀態是否審覈成功 */
 		String status = BaseApplication.getDriver().status;
-		if("4".equals(status)){
+		if ("4".equals(status))
+		{
 			startActivity(IdentityErrorUI.class);
-		}else{
+		}
+		else
+		{
 			startActivity(IdentityCheckUI.class);
 		}
 	}
@@ -256,26 +294,30 @@ public class DriverUI extends BaseActivity implements OnClickListener, OnRefresh
 	}
 
 	@Override
-	public void onModify(Bitmap bitmap,String name)
+	public void onModify(Bitmap bitmap, String name)
 	{
 		mCivPhoto.setImageBitmap(bitmap);
 		mTvName.setText(name);
 	}
+
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	{
 		OrderBean orderBean = mDatas.get(position);
 		Bundle bundle = new Bundle();
 		bundle.putSerializable(MyConstains.ITEMBEAN, orderBean);
-		startActivity(DriverCenterOrderDetailUI.class,bundle);
+		startActivity(DriverCenterOrderDetailUI.class, bundle);
 	}
+
 	@Override
 	public void onChange(OrderBean orderBean)
 	{
 		int index = 0;
-		for(int i = 0; i <mDatas.size(); i++){
+		for (int i = 0; i < mDatas.size(); i++)
+		{
 			OrderBean bean = mDatas.get(i);
-			if(bean.sn.equals(orderBean.sn)){
+			if (bean.sn.equals(orderBean.sn))
+			{
 				index = i;
 				break;
 			}

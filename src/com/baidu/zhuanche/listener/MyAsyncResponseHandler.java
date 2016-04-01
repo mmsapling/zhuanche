@@ -1,8 +1,8 @@
 package com.baidu.zhuanche.listener;
 
-
 import org.apache.http.Header;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.os.AsyncTask;
 
@@ -37,9 +37,10 @@ import com.loopj.android.http.RequestParams;
  */
 public abstract class MyAsyncResponseHandler extends AsyncHttpResponseHandler
 {
-	public MyAsyncResponseHandler(){
-		
+	public MyAsyncResponseHandler() {
+
 	}
+
 	@Override
 	public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3)
 	{
@@ -72,7 +73,9 @@ public abstract class MyAsyncResponseHandler extends AsyncHttpResponseHandler
 		}
 
 	}
-	public void conn(){
+
+	public void conn()
+	{
 		User user = BaseApplication.getUser();
 		Driver driver = BaseApplication.getDriver();
 		if (user != null)
@@ -86,6 +89,7 @@ public abstract class MyAsyncResponseHandler extends AsyncHttpResponseHandler
 			lianjieDriver();
 		}
 	}
+
 	/**
 	 * 用户模块
 	 */
@@ -179,19 +183,7 @@ public abstract class MyAsyncResponseHandler extends AsyncHttpResponseHandler
 			}
 			else if (40001 == code)
 			{
-				PrintUtils.println("未登录或登陆信息已失效！");
-				User user = BaseApplication.getUser();
-				Driver driver = BaseApplication.getDriver();
-				if (user != null)
-				{
-					PrintUtils.println("用户不等于空！");
-					lianjieUser();
-				}
-				else if (driver != null)
-				{
-					PrintUtils.println("司机不等于空！");
-					lianjieDriver();
-				}
+
 			}
 			else if (40002 == code)
 			{
@@ -403,11 +395,28 @@ public abstract class MyAsyncResponseHandler extends AsyncHttpResponseHandler
 				ToastUtils.makeShortText(UIUtils.getContext(), "系统错误！");
 				return;
 			}
-			// else
-			// {
-			// ToastUtils.makeShortText(UIUtils.getContext(), "未知状态码错误！");
-			// return;
-			// }
+			else if (70001 == code)
+			{
+
+				ToastUtils.makeShortText(UIUtils.getContext(), "微信支付配置错误，请先配置相关参数");
+				return;
+			}else if(70002 == code){
+				try{
+					JSONObject jsonObject = new JSONObject(json);
+					String msg = "错误";
+					msg = jsonObject.getString("message");
+					ToastUtils.makeShortText(UIUtils.getContext(), msg);
+					return;
+				}catch(Exception e){
+					return;
+				}
+				
+			}
+			else
+			{
+				ToastUtils.makeShortText(UIUtils.getContext(), "未知状态码错误！");
+				return;
+			}
 		}
 		else
 		{

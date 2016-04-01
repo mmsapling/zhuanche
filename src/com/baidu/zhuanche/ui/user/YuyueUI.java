@@ -988,6 +988,10 @@ public class YuyueUI extends BaseActivity implements OnClickListener, OnGetOnLoc
 	{
 		mYuyueData.getOffLocation = location;
 		mEtGetOff.setText(location.address);
+		PrintUtils.print("省=" + mYuyueData.getOffLocation.province);
+		PrintUtils.print("市=" + mYuyueData.getOffLocation.city);
+		PrintUtils.print("区=" + mYuyueData.getOffLocation.district);
+		PrintUtils.print("街道=" + mYuyueData.getOffLocation.address);
 	}
 
 	private class BudgetListener implements TextWatcher

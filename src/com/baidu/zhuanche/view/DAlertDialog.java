@@ -133,5 +133,4 @@ public class DAlertDialog extends Dialog implements android.view.View.OnClickLis
 		this.confirmListener = confirmListener;
 	}
 	
-	
 }

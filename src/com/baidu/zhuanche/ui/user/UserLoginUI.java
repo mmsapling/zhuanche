@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -31,6 +32,7 @@ import com.baidu.zhuanche.listener.MyAsyncResponseHandler;
 import com.baidu.zhuanche.service.UserConnectService;
 import com.baidu.zhuanche.utils.AsyncHttpClientUtil;
 import com.baidu.zhuanche.utils.MD5Utils;
+import com.baidu.zhuanche.utils.PrintUtils;
 import com.baidu.zhuanche.utils.ToastUtils;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
@@ -186,7 +188,15 @@ public class UserLoginUI extends BaseActivity implements OnClickListener
 		RequestParams params = new RequestParams();
 		params.add("mobile", mNumber);
 		params.add("password", mPassword);
-		params.add("receive_id", MD5Utils.encode(mNumber));
+		if(TextUtils.isEmpty(getDeviceId())){
+			params.add("receive_id", MD5Utils.encode(getDeviceId()));
+			PrintUtils.println("设备号=" +MD5Utils.encode(getDeviceId()) );
+		}else {
+			params.add("receive_id", MD5Utils.encode(mNumber));
+			PrintUtils.println("手机号=" +MD5Utils.encode(mNumber) );
+		}
+		
+		
 		client.post(url, params, new MyAsyncResponseHandler() {
 			@Override
 			public void success(String json)

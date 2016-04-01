@@ -10,7 +10,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.baidu.zhuanche.R;
+import com.baidu.zhuanche.adapter.DriverMsgRefreshAdapter;
 import com.baidu.zhuanche.adapter.UserMsgAdapter;
+import com.baidu.zhuanche.adapter.UserMsgRefreshAdapter;
 import com.baidu.zhuanche.base.BaseActivity;
 import com.baidu.zhuanche.base.BaseApplication;
 import com.baidu.zhuanche.bean.DriverMsgBean;
@@ -20,20 +22,22 @@ import com.baidu.zhuanche.conf.URLS;
 import com.baidu.zhuanche.listener.MyAsyncResponseHandler;
 import com.baidu.zhuanche.utils.ToastUtils;
 import com.baidu.zhuanche.utils.UIUtils;
+import com.baidu.zhuanche.zlist.widget.ZListView;
+import com.baidu.zhuanche.zlist.widget.ZListView.IXListViewListener;
 import com.loopj.android.http.RequestParams;
 
 
-public class DriverMessageUI extends BaseActivity implements OnClickListener, OnItemClickListener
+public class DriverMessageUI extends BaseActivity implements OnClickListener, OnItemClickListener, IXListViewListener
 {
-	private ListView		mListView;
+	private ZListView		mListView;
 	private List<Msg>		mDatas	= new ArrayList<Msg>();
-	private UserMsgAdapter	mMsgAdapter;
+	private DriverMsgRefreshAdapter	mMsgAdapter;
 
 	@Override
 	public void initView()
 	{
 		setContentView(R.layout.ui_driver_message);
-		mListView = (ListView) findViewById(R.id.msg_listview);
+		mListView = (ZListView) findViewById(R.id.msg_listview);
 	}
 
 	@Override
@@ -43,10 +47,16 @@ public class DriverMessageUI extends BaseActivity implements OnClickListener, On
 		mTvTitle.setText("我的消息");
 		mIvRightHeader.setImageResource(R.drawable.delete);
 		mIvRightHeader.setVisibility(0);
-		mMsgAdapter = new UserMsgAdapter(this, mDatas);
+		mMsgAdapter = new DriverMsgRefreshAdapter(this, mDatas);
 		mListView.setAdapter(mMsgAdapter);
 		setEmptyView(mListView, "沒有相關消息！");
 		ToastUtils.showProgress(this);
+		loadData();
+	}
+
+	
+	private void loadData()
+	{
 		String url = URLS.BASESERVER + URLS.Driver.driverMessage;
 		RequestParams params = new RequestParams();
 		params.add(URLS.ACCESS_TOKEN, BaseApplication.getDriver().access_token);
@@ -59,9 +69,9 @@ public class DriverMessageUI extends BaseActivity implements OnClickListener, On
 			}
 		});
 
+		
 	}
 
-	
 	@Override
 	public void onBackPressed()
 	{
@@ -72,10 +82,11 @@ public class DriverMessageUI extends BaseActivity implements OnClickListener, On
 		DriverMsgBean msgBean = mGson.fromJson(json, DriverMsgBean.class);
 		if (!isListEmpty(msgBean.content.message))
 		{
+			mDatas.clear();
 			mDatas.addAll(msgBean.content.message);
 			mMsgAdapter.notifyDataSetChanged();
 		}
-
+		mListView.stopRefresh();
 	}
 
 	@Override
@@ -84,7 +95,10 @@ public class DriverMessageUI extends BaseActivity implements OnClickListener, On
 		super.initListener();
 		mIvLeftHeader.setOnClickListener(this);
 		mIvRightHeader.setOnClickListener(this);
-		mListView.setOnItemClickListener(this);
+		//mListView.setOnItemClickListener(this);
+		mListView.setXListViewListener(this);
+		mListView.setPullLoadEnable(false);
+		mListView.setPullRefreshEnable(true);
 	}
 
 	@Override
@@ -139,4 +153,24 @@ public class DriverMessageUI extends BaseActivity implements OnClickListener, On
 		});
 	}
 
+	@Override
+	public void onRefresh()
+	{
+		mListView.postDelayed(new RefreshData(), 1000);
+	}
+
+	@Override
+	public void onLoadMore()
+	{
+		mListView.postDelayed(new RefreshData(), 1000);
+	}
+	private class RefreshData implements Runnable{
+
+		@Override
+		public void run()
+		{
+			loadData();
+		}
+		
+	}
 }

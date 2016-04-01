@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="23" />
 
     <supports-screens
         android:anyDensity="true"
@@ -281,7 +281,7 @@
         <!-- Required. AppKey copied from Portal -->
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="ef3b4bb2d8d41675b6d497d5" />
+            android:value="1a9b668ad71b9f0f8d959597" />
 
         <!-- 支付宝 -->
         <activity

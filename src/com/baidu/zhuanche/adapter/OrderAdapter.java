@@ -106,6 +106,8 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 			
 			holder.tvDriverName = (TextView) convertView.findViewById(R.id.item_yuyue_tv_drivername);
 			holder.tvCarId = (TextView) convertView.findViewById(R.id.item_yuyue_tv_carid);
+			holder.btDelete = (Button) convertView.findViewById(R.id.item_yuyue_bt_delete);
+			holder.container_delete = (RelativeLayout) convertView.findViewById(R.id.item_container_delete);
 			
 		}
 		else
@@ -147,19 +149,23 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 		// 预约中状态 ，显示加小费容器
 		if ("0".equals(bean.status))
 		{
+			holder.btAddFee.setEnabled(true);
 			holder.container_daijiedan.setVisibility(0);
 			holder.container_yiyueyue.setVisibility(8);
 			holder.container_goAssess.setVisibility(8);
 			holder.container_lookAssess.setVisibility(8);
 			holder.container_cancel.setVisibility(8);
+			holder.container_delete.setVisibility(8);
 		}
 		else if ("1".equals(bean.status))
 		{
+			holder.btPay.setEnabled(true);
 			holder.container_daijiedan.setVisibility(8);
 			holder.container_yiyueyue.setVisibility(0);
 			holder.container_goAssess.setVisibility(8);
 			holder.container_lookAssess.setVisibility(8);
 			holder.container_cancel.setVisibility(8);
+			holder.container_delete.setVisibility(8);
 		}
 		else if ("2".equals(bean.status))
 		{
@@ -168,6 +174,7 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 			holder.container_goAssess.setVisibility(0);
 			holder.container_lookAssess.setVisibility(8);
 			holder.container_cancel.setVisibility(8);
+			holder.container_delete.setVisibility(8);
 		}
 		else if ("3".equals(bean.status)) // 查看评价
 		{
@@ -176,6 +183,7 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 			holder.container_goAssess.setVisibility(8);
 			holder.container_lookAssess.setVisibility(0);
 			holder.container_cancel.setVisibility(8);
+			holder.container_delete.setVisibility(8);
 		}
 		else if("4".equals(bean.status)){// 4 已取消
 			holder.container_daijiedan.setVisibility(8);
@@ -184,6 +192,8 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 			holder.container_lookAssess.setVisibility(8);
 			holder.container_cancel.setVisibility(8);
 			holder.container_cancel.setVisibility(0);
+			holder.container_delete.setVisibility(8);
+			
 		}
 		else if("5".equals(bean.status)){
 			holder.container_daijiedan.setVisibility(8);
@@ -193,24 +203,18 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 			holder.container_cancel.setVisibility(8);
 			holder.btPay.setVisibility(8);
 			holder.hahaha.setVisibility(8);
+			holder.container_delete.setVisibility(8);
 		}else if("6".equals(bean.status)){
 			if(TextUtils.isEmpty(driverInfo.name)){
 				//预约中，司机没有接单
-				holder.container_daijiedan.setVisibility(0);
+				holder.container_daijiedan.setVisibility(8);
 				holder.container_yiyueyue.setVisibility(8);
 				holder.container_goAssess.setVisibility(8);
 				holder.container_lookAssess.setVisibility(8);
 				holder.container_cancel.setVisibility(8);
-				holder.btAddFee.setEnabled(false);
-			}else{
-				holder.container_daijiedan.setVisibility(8);
-				holder.btPay.setEnabled(false);
-				holder.container_yiyueyue.setVisibility(0);
-				holder.container_goAssess.setVisibility(8);
-				holder.container_lookAssess.setVisibility(8);
-				holder.container_cancel.setVisibility(8);
-			}
-			
+				holder.container_delete.setVisibility(0);
+				
+		}
 		}
 		// 5 待评价 线下支付 等待评价 和2一样
 		/** 小费按钮点击事件 */
@@ -316,6 +320,9 @@ public class OrderAdapter extends MyBaseApdater<OrderBean> implements OnAddFeeLi
 		holder.btGoAssess.setOnClickListener(new MyOnClickLsterner(mContext, holder, bean,position));
 		/** 查看评价点击事件 */
 		holder.btLookAssess.setOnClickListener(new MyOnClickLsterner(mContext, holder, bean));
+		holder.btDelete.setOnClickListener(new MyOnClickLsterner(mContext,this,mDataSource,bean,holder, position, 1));
+		holder.btCancel.setOnClickListener(new MyOnClickLsterner(mContext,this,mDataSource,bean,holder, position, 1));
+		
 		return convertView;
 	}
 
@@ -418,9 +425,20 @@ class MyOnClickLsterner implements OnClickListener
 		mContext = context;
 		mHolder = holder;
 		mOrderBean = bean;
-		position = position;
+		this.position = position;
 	}
-
+	private int index;
+	private OrderAdapter adapter;
+	private List<OrderBean> datasource;
+	public MyOnClickLsterner(Context c,OrderAdapter context,List<OrderBean> datasource,OrderBean bean,OrderViewHolder holder,int position,int index){
+		mContext = c;
+		this.datasource = datasource;
+		mHolder = holder;
+		mOrderBean = bean;
+		adapter = context;
+		this.position = position;
+		this.index = index;
+	}
 	@Override
 	public void onClick(View v)
 	{
@@ -455,6 +473,29 @@ class MyOnClickLsterner implements OnClickListener
 			Bundle bundle = new Bundle();
 			bundle.putSerializable(MyConstains.ITEMBEAN, mOrderBean);
 			startActivity(LookAssessUI.class, bundle);
+		}else if(index == 1){
+			AsyncHttpClient instance = AsyncHttpClientUtil.getInstance();
+			String url = URLS.BASESERVER + URLS.User.hideOrder;
+			ToastUtils.showProgress(mContext);
+			RequestParams params = new RequestParams();
+			params.add(URLS.ACCESS_TOKEN, BaseApplication.getUser().access_token);
+			params.add("sn", mOrderBean.sn);
+			instance.post(url, params, new MyAsyncResponseHandler(){
+
+				@Override
+				public void success(String json)
+				{
+					
+					if(position < 0){
+						position = 0;
+					}
+					if(datasource != null){
+						datasource.remove(position);
+					}
+					adapter.notifyDataSetChanged();
+				}
+				
+			});
 		}
 	}
 
@@ -510,6 +551,8 @@ class OrderViewHolder
 	RelativeLayout	container_goAssess;
 	RelativeLayout	container_lookAssess;
 	RelativeLayout  hahaha;
+	RelativeLayout  container_delete;
+	Button			btDelete;
 }
 
 class FeeViewHolder

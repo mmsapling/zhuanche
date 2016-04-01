@@ -2,8 +2,8 @@ package com.baidu.zhuanche.conf;
 
 public interface URLS
 {
-//	String	BASE		= "http://gjxc.fanc.com.cn";
-	String BASE = "http://app.crossbordercar.com";
+	// String BASE = "http://gjxc.fanc.com.cn";
+	String	BASE		= "http://app.crossbordercar.com";
 	/**
 	 * 基地址
 	 */
@@ -40,10 +40,12 @@ public interface URLS
 		String	budget				= "User/User/budget";
 		String	article_detail		= "User/Login/article_detail";
 		String	payment				= "User/Order/payment";
-		String  fee					= "User/User/fee";
-		String  feedback			= "User/User/feedback"; // 1 user 2 driver
+		String	fee					= "User/User/fee";
+		String	feedback			= "User/User/feedback";		// 1 user 2
+																	// driver
 		// http://192.168.1.12/pinche/index.php/User/Login/article_detail
-		String editpassword			= "User/User/editpassword"; //修改密碼
+		String	editpassword		= "User/User/editpassword";	// 修改密碼
+		String	hideOrder			= "User/User/hideOrder";
 	}
 
 	/**
@@ -80,9 +82,12 @@ public interface URLS
 		String	orderDetail			= "Driver/Driver/orderDetail";
 		String	cleanWithdraw		= "Driver/Driver/cleanWithdraw";
 		String	finished			= "Driver/Driver/finished";
-		String  feedback			= "Driver/Driver/feedback"; // 1 user 2 driver
-		String editpassword			= "Driver/Driver/editpassword"; //修改密碼
-		
+		String	feedback			= "Driver/Driver/feedback";		// 1
+																		// user
+																		// 2
+																		// driver
+		String	editpassword		= "Driver/Driver/editpassword";	// 修改密碼
+		String	score				= "Driver/Driver/score";
 	}
 
 	String	MOBILE			= "mobile";		// 手机号码

@@ -86,17 +86,18 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 		// mListView.scrollBy(0, -1);
 		
 	}
+
 	@Override
 	public void onBackPressed()
 	{
 		finishActivity(YuyueUI.class);
 	}
-//	@Override
-//	protected void onResume()
-//	{
-//		super.onResume();
-//		mImageUtils.display(mCivPic, URLS.BASE + mUser.icon);
-//	}
+	@Override
+	protected void onResume()
+	{
+		super.onResume();
+		mImageUtils.display(mCivPic, URLS.BASE + mUser.icon);
+	}
 	@Override
 	public void initData()   
 	{
@@ -106,7 +107,7 @@ public class UserCenterUI extends BaseActivity implements OnClickListener, OnIte
 		if(mUser==null ||TextUtils.isEmpty(mUser.mobile)){
 			return;
 		}
-		mImageUtils.display(mCivPic, URLS.BASE + mUser.icon);
+		//mImageUtils.display(mCivPic, URLS.BASE + mUser.icon);
 		mTvNumber.setText(AtoolsUtil.mobile4(mUser.mobile));
 		mTvName.setText(mUser.username);
 		mDatas = new ArrayList<OrderListBean.OrderBean>();

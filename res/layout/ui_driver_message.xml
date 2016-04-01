@@ -7,12 +7,12 @@
 
     <include layout="@layout/layout_header" />
 
-    <ListView
+    <com.baidu.zhuanche.zlist.widget.ZListView
         android:id="@+id/msg_listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:divider="@color/divide_color"
-        android:dividerHeight="0.1dp" >
-    </ListView>
+        android:dividerHeight="0.1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.baidu.zhuanche.zlist.widget.ZListView>
 
 </LinearLayout>

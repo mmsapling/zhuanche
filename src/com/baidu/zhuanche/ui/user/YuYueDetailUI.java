@@ -44,6 +44,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alipay.android.app.sdk.AliPay;
+import com.alipay.android.app.util.LogUtils;
 import com.baidu.zhuanche.PayActivity;
 import com.baidu.zhuanche.R;
 import com.baidu.zhuanche.adapter.DialogSignAdapter;
@@ -326,6 +327,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 	{
 
 		String url = URLS.BASESERVER + URLS.User.payment;
+		ToastUtils.showProgress(this);
 		RequestParams params = new RequestParams();
 		params.put(URLS.ACCESS_TOKEN, BaseApplication.getUser().access_token);
 		params.put(URLS.TYPE, "wx");
@@ -381,25 +383,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 		}
 	}
 
-	private String genAppSign(List<NameValuePair> params)
-	{
-		StringBuilder sb = new StringBuilder();
-
-		for (int i = 0; i < params.size(); i++)
-		{
-			sb.append(params.get(i).getName());
-			sb.append('=');
-			sb.append(params.get(i).getValue());
-			sb.append('&');
-		}
-		sb.append("key=");
-		sb.append(Constants.API_KEY);
-
-		sb.append("sign str\n" + sb.toString() + "\n\n");
-		String appSign = MD5.getMessageDigest(sb.toString().getBytes())
-							.toUpperCase();
-		return appSign;
-	}
+	
 
 	/**
 	 * 支付宝支付
@@ -530,7 +514,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 				{
 					mAddFeeListener.onChangeStatus(mOrderBean);
 				}
-				ToastUtils.makeShortText("现金支付成功！");
+				ToastUtils.makeShortText("请付现金！");
 				setStatusData("5");
 			}
 		});
@@ -800,6 +784,7 @@ public class YuYueDetailUI extends BaseActivity implements OnClickListener
 					break;
 
 				default:
+					Log.d("tylz1", "result=" + result);
 					ToastUtils.makeShortText("支付失败！");
 					break;
 			}

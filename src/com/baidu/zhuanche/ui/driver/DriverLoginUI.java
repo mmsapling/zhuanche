@@ -188,7 +188,7 @@ public class DriverLoginUI extends BaseActivity implements OnClickListener
 		String url = URLS.BASESERVER + URLS.Driver.login;
 		AsyncHttpClient client = AsyncHttpClientUtil.getInstance();
 		RequestParams params = new RequestParams();
-		params.add("receive_id", MD5Utils.encode(mNumber));
+		params.add("receive_id", MD5Utils.encode(getDeviceId()));
 		params.add("mobile", mNumber);
 		params.add("password", mPassword);
 		client.post(url, params, new MyAsyncResponseHandler() {

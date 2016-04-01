@@ -30,6 +30,7 @@ import com.baidu.zhuanche.listener.MyAsyncResponseHandler;
 import com.baidu.zhuanche.utils.AsyncHttpClientUtil;
 import com.baidu.zhuanche.utils.JsonUtils;
 import com.baidu.zhuanche.utils.MD5Utils;
+import com.baidu.zhuanche.utils.PrintUtils;
 import com.baidu.zhuanche.utils.ToastUtils;
 import com.baidu.zhuanche.utils.UIUtils;
 import com.loopj.android.http.AsyncHttpClient;
@@ -134,7 +135,13 @@ public class UserRegistUI extends BaseActivity implements OnClickListener
 		params.put(URLS.MOBILE, number);
 		params.put(URLS.PASSWORD, password);
 		params.put(URLS.VERIFY_CODE, code);
-		params.put("receive_id", MD5Utils.encode(number));
+		if(TextUtils.isEmpty(getDeviceId())){
+			params.add("receive_id", MD5Utils.encode(getDeviceId()));
+			PrintUtils.println("设备号=" +MD5Utils.encode(getDeviceId()) );
+		}else {
+			params.add("receive_id", MD5Utils.encode(number));
+			PrintUtils.println("手机号=" +MD5Utils.encode(number) );
+		}
 		client.post(url, params, new MyAsyncResponseHandler() {
 
 			@Override

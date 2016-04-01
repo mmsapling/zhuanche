@@ -110,6 +110,9 @@ public class DriverAllAssessUI extends BaseActivity implements OnClickListener, 
 		mTvIdCard.setText(mDriverInfo.citizenid);
 		mImageUtils.display(mCivPhoto, URLS.BASE + mDriverInfo.icon);
 		mTvCarName.setText(mDriverInfo.type);
+		mTvServiceCount.setText(mDriverInfo.server_num);
+		mTvRanking.setText(mDriverInfo.ranking);
+		mTvRating.setText(mDriverInfo.star);
 	}
 
 	@Override

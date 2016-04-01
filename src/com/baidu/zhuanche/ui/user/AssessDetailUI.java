@@ -121,10 +121,10 @@ public class AssessDetailUI extends BaseActivity implements OnClickListener
 	private void submit()
 	{
 		String assess = mEtAssess.getText().toString().trim();
-		if(TextUtils.isEmpty(assess)){
-			ToastUtils.makeShortText("请输入评价！");
-			return;
-		}
+//		if(TextUtils.isEmpty(assess)){
+//			ToastUtils.makeShortText("请输入评价！");
+//			return;
+//		}
 		String url = URLS.BASESERVER + URLS.User.addDriverComment;
 		ToastUtils.showProgress(this);
 		RequestParams params = new RequestParams();

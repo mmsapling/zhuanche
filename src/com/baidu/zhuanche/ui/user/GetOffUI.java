@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -213,6 +214,9 @@ public class GetOffUI extends BaseActivity implements OnGeocodeSearchListener
 						location.city = address.getCity();
 						location.district = address.getDistrict();
 						location.latLng = AMapUtil.convertToLatLng(address.getLatLonPoint());
+						if(TextUtils.isEmpty(address.getCity())){
+							location.city = location.province;
+						}
 						mLocationListener.onGetOffLocation(location);
 						mSearchView.setText(location.address);
 					}
@@ -256,6 +260,9 @@ public class GetOffUI extends BaseActivity implements OnGeocodeSearchListener
 					location.city = address.getCity();
 					location.district = address.getDistrict();
 					location.latLng = new LatLng(query.getPoint().getLatitude(), query.getPoint().getLongitude());
+					if(TextUtils.isEmpty(address.getCity())){
+						location.city = location.province;
+					}
 					mLocationListener.onGetOffLocation(location);
 					mSearchView.setText(location.address);
 				}
