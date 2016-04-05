@@ -7,10 +7,7 @@
         android:drawable="@drawable/rating_big_empty">
     </item>
     <!-- 2.副进度条 -->
-    <item
-        android:id="@android:id/secondaryProgress"
-        android:drawable="@drawable/rating_big_full">
-    </item>
+   
     <!-- 3.主进度条 -->
     <item
         android:id="@android:id/progress"

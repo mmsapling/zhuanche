@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
@@ -43,10 +44,9 @@ public class LookAssessUI extends BaseActivity implements OnClickListener
 	private TextView		mTvCarNum;
 	private ImageView		mIvCall;
 	private TextView		mTvPrice;
-	private RatingBar		mAssessRationBar;
 	private EditText		mEtAssess;
 	private CommentContent	mContent;
-
+	private RatingBar       mR;
 	@Override
 	public void init()
 	{
@@ -66,8 +66,9 @@ public class LookAssessUI extends BaseActivity implements OnClickListener
 		mTvCarNum = (TextView) findViewById(R.id.layout_driver_tv_car_name);
 		mIvCall = (ImageView) findViewById(R.id.lookassess_iv_call);
 		mTvPrice = (TextView) findViewById(R.id.lookassess_tv_price);
-		mAssessRationBar = (RatingBar) findViewById(R.id.assess_rb_ratingbar);
+		//mAssessRationBar = (RatingBar) findViewById(R.id.assess_rb_ratingbar);
 		mEtAssess = (EditText) findViewById(R.id.lookassess_et_pingjia);
+		mR = (RatingBar) findViewById(R.id.lookassess_rb_assessdriver);
 	}
 
 	@Override
@@ -104,7 +105,9 @@ public class LookAssessUI extends BaseActivity implements OnClickListener
 		mContent = commentBean.content;
 		setData(mContent.driver_info);
 		if(mContent.comment == null){return;}
-		if(TextUtils.isEmpty(mContent.comment.remark)){return;}
+		mRatingBar.setRating(Float.parseFloat(mContent.driver_info.star));
+		mR.setRating(Float.parseFloat(mContent.comment.star));
+		if(mContent.comment.remark.equals("(null)")){return;}
 		mEtAssess.setText(mContent.comment.remark);
 		
 	}
@@ -116,7 +119,9 @@ public class LookAssessUI extends BaseActivity implements OnClickListener
 		mTvDriverName.setText(info.name);
 		mTvCarid.setText(info.carid);
 		mTvCarNum.setText(info.type);
-		mRatingBar.setRating(Float.parseFloat(info.star));
+		Log.d("tylz", "start=" + info.star);
+		float star = Float.parseFloat(info.star);
+		mR.setRating(star);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.http.Header;
 
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ListView;
@@ -112,7 +113,14 @@ public class DriverAllAssessUI extends BaseActivity implements OnClickListener, 
 		mTvCarName.setText(mDriverInfo.type);
 		mTvServiceCount.setText(mDriverInfo.server_num);
 		mTvRanking.setText(mDriverInfo.ranking);
-		mTvRating.setText(mDriverInfo.star);
+		Log.d("tylz", "评论星级" + mDriverInfo.star);
+		String star = "0";
+		if(mDriverInfo.star.indexOf(".") != -1){
+			star = mDriverInfo.star.substring(0,mDriverInfo.star.indexOf(".") +2 );
+		}else{
+			star = mDriverInfo.star;
+		}
+		mTvRating.setText(star);
 	}
 
 	@Override

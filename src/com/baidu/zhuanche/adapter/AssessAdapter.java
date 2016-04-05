@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
@@ -38,8 +39,9 @@ public class AssessAdapter extends MyBaseApdater<Assess>
 			holder = (ViewHolder) convertView.getTag();
 		}
 		Assess bean = (Assess) getItem(position);
+		Log.d("tylz", bean.star);
 		holder.ratingBar.setRating(Float.parseFloat(bean.star));
-		holder.tvAssess.setText(bean.remark);
+		holder.tvAssess.setText(bean.remark.equals("(null)") ? "":bean.remark);
 		holder.tvMobile.setText(bean.mobile);
 		holder.tvTime.setText(OrderUtil.getDateText(bean.createtime));
 		return convertView;

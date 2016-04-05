@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
@@ -125,6 +126,8 @@ public class AssessDetailUI extends BaseActivity implements OnClickListener
 //			ToastUtils.makeShortText("请输入评价！");
 //			return;
 //		}
+		float rating = mAssessRationBar.getRating();
+		Log.d("tylz", "aaa=" + rating);
 		String url = URLS.BASESERVER + URLS.User.addDriverComment;
 		ToastUtils.showProgress(this);
 		RequestParams params = new RequestParams();

@@ -178,8 +178,7 @@
             android:layout_centerInParent="true"
             android:isIndicator="true"
             android:numStars="5"
-            android:progressDrawable="@drawable/layerlist_ratingbar_big_bg"
-            android:rating="1.5" />
+            android:progressDrawable="@drawable/layerlist_ratingbar_big_bg"/>
     </RelativeLayout>
 
     <TextView
