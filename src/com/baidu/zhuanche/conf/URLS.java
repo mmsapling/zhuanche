@@ -2,8 +2,10 @@ package com.baidu.zhuanche.conf;
 
 public interface URLS
 {
-	 //String BASE = "http://gjxc.fanc.com.cn";
+//	 String BASE = "http://gjxc.fanc.com.cn";
 	String	BASE		= "http://app.crossbordercar.com";
+	//String	BASE		= "http://192.168.1.108/pinche";//当配置成自己的局域网时，用这个base
+	
 	/**
 	 * 基地址
 	 */
