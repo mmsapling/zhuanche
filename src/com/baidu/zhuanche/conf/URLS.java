@@ -2,12 +2,12 @@ package com.baidu.zhuanche.conf;
 
 public interface URLS
 {
-	// String BASE = "http://gjxc.fanc.com.cn";
+	 //String BASE = "http://gjxc.fanc.com.cn";
 	String	BASE		= "http://app.crossbordercar.com";
 	/**
 	 * 基地址
 	 */
-	// String BASESERVER = BASE + "/pinche/index.php/";
+//	 String BASESERVER = BASE + "/pinche/index.php/";
 	String	BASESERVER	= BASE + "/index.php/";
 
 	/**
